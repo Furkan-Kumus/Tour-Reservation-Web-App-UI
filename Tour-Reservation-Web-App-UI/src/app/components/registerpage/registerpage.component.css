@@ -102,6 +102,7 @@ body {
     opacity: 1;
 }
 .c-formContainer {
+    padding-top: 220px;
     width: 180px;
     height: 65px;
     z-index: 1;
