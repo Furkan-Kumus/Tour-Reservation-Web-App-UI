@@ -1,0 +1,39 @@
+<div class="searchbox">
+    <div id="cover">
+        <form method="get" action="">
+            <div class="tb">
+                <div class="td">
+                    <input type="text" name="tourName" placeholder="Arama metninizi giriniz" [(ngModel)]="filterText"
+                        required>
+                </div>
+                <div class="td" id="s-cover">
+                    <button type="submit">
+                        <div id="s-circle"></div>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br><br>
+
+<div class="row + put-center">
+    <div *ngFor="let tour of tours | tourFilter : filterText" class="col-lg-4 col-md-6 col-sm-6">
+        <article class="card">
+            <img class="card__background" src="{{tour.imageUrl}}"
+                alt="Photo of Cartagena's cathedral at the background and some colonial style houses" width="1920"
+                height="2193" />
+            <div class="card__content | flow" style="color: white;">
+                <div class="card__content--container | flow">
+                    <h2 class="card__title">{{tour.name}}</h2>
+                    <p class="card__description">
+                        {{tour.description}}
+                    </p>
+                </div>
+                <button routerLink="" class="card__button">Daha Fazla Bilgi İçin Tıklayınız</button>
+            </div>
+        </article>
+    </div>
+</div>

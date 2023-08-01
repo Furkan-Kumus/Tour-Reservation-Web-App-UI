@@ -16,6 +16,8 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "strictPropertyInitialization": false,
+    "strictNullChecks":false,
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
