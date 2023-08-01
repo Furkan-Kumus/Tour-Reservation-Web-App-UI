@@ -32,7 +32,7 @@
                         {{tour.description}}
                     </p>
                 </div>
-                <button routerLink="" class="card__button">Daha Fazla Bilgi İçin Tıklayınız</button>
+                <button [routerLink]="['/home',tour.id]" class="card__button">Daha Fazla Bilgi İçin Tıklayınız</button>
             </div>
         </article>
     </div>

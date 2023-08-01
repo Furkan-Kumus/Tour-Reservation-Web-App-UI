@@ -8,7 +8,8 @@ import { TourDetailPageComponent } from './components/tour-detail-page/tour-deta
 const routes: Routes = [
   {path :'register',component : RegisterpageComponent},
   {path :'home',component : ListtoursComponent},
-  {path :'login',component : LoginpageComponent}
+  {path :'login',component : LoginpageComponent},
+  {path :'home/:id',component : TourDetailPageComponent},
 ];
 
 @NgModule({
