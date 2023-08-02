@@ -11,6 +11,8 @@ import { ListtoursComponent } from './components/listtours/listtours.component';
 import { TourDetailPageComponent } from './components/tour-detail-page/tour-detail-page.component';
 import { TourFilterPipe } from './components/listtours/tour-filter.pipe';
 import { AskedComponent } from './components/asked/asked.component';
+import { AdminpageComponent } from './components/adminpage/adminpage.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { AskedComponent } from './components/asked/asked.component';
     ListtoursComponent,
     TourDetailPageComponent,
     TourFilterPipe,
-    AskedComponent
+    AskedComponent,
+    AdminpageComponent
   ],
   imports: [
     BrowserModule,

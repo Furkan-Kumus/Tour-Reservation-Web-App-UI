@@ -5,6 +5,7 @@ import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { ListtoursComponent } from './components/listtours/listtours.component';
 import { TourDetailPageComponent } from './components/tour-detail-page/tour-detail-page.component';
 import { AskedComponent } from './components/asked/asked.component';
+import { AdminpageComponent } from './components/adminpage/adminpage.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path :'home',component : ListtoursComponent},
   {path :'login',component : LoginpageComponent},
   {path :'home/:id',component : TourDetailPageComponent},
-  {path :'Rsked',component : AskedComponent}
+  {path :'asked',component : AskedComponent},
+  {path: 'admin', component:AdminpageComponent}
 ];
 
 @NgModule({

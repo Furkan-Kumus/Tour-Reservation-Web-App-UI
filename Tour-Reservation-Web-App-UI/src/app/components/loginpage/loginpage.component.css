@@ -125,6 +125,14 @@ body {
     width: 15px;
     height: 17px;
 }
+.c-form__toggleIcon2 {
+    
+    display: inline-block;
+    margin-left: 10px;
+    position: relative;
+    width: 15px;
+    height: 17px;
+}
 .c-form__toggleIcon::before, .c-form__toggleIcon::after {
     content: "";
     position: absolute;
@@ -138,6 +146,24 @@ body {
     border-radius: 50%;
 }
 .c-form__toggleIcon::after {
+    bottom: 0;
+    width: 100%;
+    height: 7px;
+    border-radius: 7px 7px 0 0;
+}
+.c-form__toggleIcon2::before, .c-form__toggleIcon2::after {
+    content: "";
+    position: absolute;
+    background-color: #565656;
+}
+.c-form__toggleIcon2::before {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+.c-form__toggleIcon2::after {
     bottom: 0;
     width: 100%;
     height: 7px;
