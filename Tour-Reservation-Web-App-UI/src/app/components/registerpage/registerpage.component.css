@@ -35,7 +35,7 @@ body {
     color: #565656;
 }
 .c-checkbox:nth-of-type(2):checked ~ .c-form__progress {
-    width: calc(100vw / 3);
+    width: calc(100vw / 4);
 }
 .c-checkbox:nth-of-type(2):checked ~ .c-formContainer .c-form .c-form__group:nth-child(1) {
     visibility: hidden;
@@ -59,7 +59,7 @@ body {
     color: #565656;
 }
 .c-checkbox:nth-of-type(3):checked ~ .c-form__progress {
-    width: calc((100vw / 3) + 100vw / 3);
+    width: calc((100vw / 4) + 100vw / 4);
 }
 .c-checkbox:nth-of-type(3):checked ~ .c-formContainer .c-form .c-form__group:nth-child(2) {
     visibility: hidden;
@@ -82,6 +82,35 @@ body {
     pointer-events: initial;
     color: #565656;
 }
+
+
+
+.c-checkbox:nth-of-type(4):checked ~ .c-form__progress {
+    width: calc((100vw / 4) + (100vw / 4) + 100vw / 4);
+}
+.c-checkbox:nth-of-type(4):checked ~ .c-formContainer .c-form .c-form__group:nth-child(3) {
+    visibility: hidden;
+    opacity: 0;
+}
+.c-checkbox:nth-of-type(4):checked ~ .c-formContainer .c-form .c-form__group:nth-child(3) .c-form__border {
+    width: 0;
+}
+.c-checkbox:nth-of-type(4):checked ~ .c-formContainer .c-form .c-form__group:nth-child(4) {
+    visibility: visible;
+    opacity: 1;
+}
+.c-checkbox:nth-of-type(4):checked ~ .c-formContainer .c-form .c-form__group:nth-child(4) .c-form__border {
+    width: 100%;
+}
+.c-checkbox:nth-of-type(4):checked ~ .c-formContainer .c-form .c-form__group:nth-child(4) .c-form__input:not(:placeholder-shown):invalid ~ .c-form__border, .c-checkbox:nth-of-type(2):checked ~ .c-formContainer .c-form .c-form__group:nth-child(2) .c-form__input:not(:placeholder-shown):invalid ~ .c-form__next {
+    color: #f03;
+}
+.c-checkbox:nth-of-type(4):checked ~ .c-formContainer .c-form .c-form__group:nth-child(4) .c-form__input:required:valid ~ .c-form__next {
+    pointer-events: initial;
+    color: #565656;
+}
+
+
 #finish:checked ~ .c-form__progress {
     width: 100vw;
 }
@@ -90,12 +119,12 @@ body {
     opacity: 0;
     transform: translateX(50%) scaleX(0);
 }
-#finish:checked ~ .c-formContainer .c-form .c-form__group:nth-child(3) {
+#finish:checked ~ .c-formContainer .c-form .c-form__group:nth-child(4) {
     transition: 0s;
     visibility: hidden;
     opacity: 0;
 }
-#finish:checked ~ .c-formContainer .c-form .c-form__group:nth-child(3) .c-form__border {
+#finish:checked ~ .c-formContainer .c-form .c-form__group:nth-child(4) .c-form__border {
     width: 0;
 }
 #finish:checked ~ .c-formContainer .c-welcome {

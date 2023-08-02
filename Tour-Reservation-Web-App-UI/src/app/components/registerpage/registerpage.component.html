@@ -1,70 +1,97 @@
-<input class="c-checkbox" type="checkbox" id="start">
-<input class="c-checkbox" type="checkbox" id="progress2">
-<input class="c-checkbox" type="checkbox" id="progress3">
-<input class="c-checkbox" type="checkbox" id="finish">
+<input class="c-checkbox" type="checkbox" id="start" />
+<input class="c-checkbox" type="checkbox" id="progress2" />
+<input class="c-checkbox" type="checkbox" id="progress3" />
+<input class="c-checkbox" type="checkbox" id="progress4" />
+<input class="c-checkbox" type="checkbox" id="finish" />
 <div class="c-form__progress"></div>
 
 <div class="c-formContainer">
   <div class="c-welcome">Welcome aboard!</div>
-  <div><label class="c-form__next" for="progress2" role="button">
-    <span class="c-form__nextIcon"></span>
-</label></div>
+  <div>
+    <label class="c-form__next" for="progress2" role="button">
+      <span class="c-form__nextIcon"></span>
+    </label>
+  </div>
   <form class="c-form" action="">
     <div class="c-form__group">
+      <label class="c-form__label" for="name">
+        <input
+          type="text"
+          id="name"
+          class="c-form__input"
+          placeholder=" "
+          required
+        />
+
+        <label class="c-form__next" for="progress2" role="button">
+          <span class="c-form__nextIcon"></span>
+        </label>
+
+        <span class="c-form__groupLabel">İsminiz</span>
+        <b class="c-form__border"></b>
+      </label>
+    </div>
+
+    <div class="c-form__group">
       <label class="c-form__label" for="username">
-                    <input
-                        type="text"
-                        id="username"
-                        class="c-form__input"
-                        placeholder=" "
-                        required>
+        <input
+          type="text"
+          id="username"
+          class="c-form__input"
+          placeholder=" "
+          required
+        />
 
-                    <label class="c-form__next" for="progress2" role="button">
-                        <span class="c-form__nextIcon"></span>
-                    </label>
+        <label class="c-form__next" for="progress3" role="button">
+          <span class="c-form__nextIcon"></span>
+        </label>
 
-      <span class="c-form__groupLabel">İsminiz</span>
-      <b class="c-form__border"></b>
+        <span class="c-form__groupLabel">Kullanıcı Adınız</span>
+        <b class="c-form__border"></b>
       </label>
     </div>
 
     <div class="c-form__group">
       <label class="c-form__label" for="femail">
-                    <input
-                        type="email"
-                        id="femail"
-                        class="c-form__input"
-                        placeholder=" "
-                        pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                        required>
+        <input
+          type="email"
+          id="femail"
+          class="c-form__input"
+          placeholder=" "
+          pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+          required
+        />
 
-                    <label class="c-form__next" for="progress3" role="button">
-                        <span class="c-form__nextIcon"></span>
-                    </label>
+        <label class="c-form__next" for="progress4" role="button">
+          <span class="c-form__nextIcon"></span>
+        </label>
 
-      <span class="c-form__groupLabel">E-mail?</span>
-      <b class="c-form__border"></b>
+        <span class="c-form__groupLabel">E-mail?</span>
+        <b class="c-form__border"></b>
       </label>
     </div>
 
     <div class="c-form__group">
       <label class="c-form__label" for="fpass">
-                    <input
-                        type="password"
-                        id="fpass"
-                        class="c-form__input"
-                        placeholder=" "
-                        required>
+        <input
+          type="password"
+          id="fpass"
+          class="c-form__input"
+          placeholder=" "
+          required
+        />
 
-                    <label class="c-form__next" for="finish" role="button" >
-                        <span class="c-form__nextIcon"></span>
-                    </label>
+        <label class="c-form__next" for="finish" role="button">
+          <span class="c-form__nextIcon"></span>
+        </label>
 
-      <span class="c-form__groupLabel">Şifre</span>
-      <b class="c-form__border"></b>
+        <span class="c-form__groupLabel">Şifre</span>
+        <b class="c-form__border"></b>
       </label>
     </div>
 
-    <label class="c-form__toggle" for="start">Kayıt Ol<span class="c-form__toggleIcon"></span></label>
+    <label class="c-form__toggle" for="start"
+      >Kayıt Ol<span class="c-form__toggleIcon"></span
+    ></label>
   </form>
 </div>

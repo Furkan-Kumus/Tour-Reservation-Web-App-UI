@@ -1,0 +1,21 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+  }
+  
+  .toggle-button {
+    display: block;
+    cursor: pointer;
+  }
+  
+  /* Alt alta üç çizgi için gerekli stiller */
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px auto;
+    transition: background-color 0.3s;
+  }
+  
