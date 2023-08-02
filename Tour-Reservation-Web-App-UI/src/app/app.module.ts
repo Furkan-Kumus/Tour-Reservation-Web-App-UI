@@ -10,6 +10,7 @@ import { RegisterpageComponent } from './components/registerpage/registerpage.co
 import { ListtoursComponent } from './components/listtours/listtours.component';
 import { TourDetailPageComponent } from './components/tour-detail-page/tour-detail-page.component';
 import { TourFilterPipe } from './components/listtours/tour-filter.pipe';
+import { AskedComponent } from './components/asked/asked.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TourFilterPipe } from './components/listtours/tour-filter.pipe';
     RegisterpageComponent,
     ListtoursComponent,
     TourDetailPageComponent,
-    TourFilterPipe
+    TourFilterPipe,
+    AskedComponent
   ],
   imports: [
     BrowserModule,
