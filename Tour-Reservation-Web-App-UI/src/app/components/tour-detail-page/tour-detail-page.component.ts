@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { tour } from '../listtours/tour';
 
 @Component({
   selector: 'app-tour-detail-page',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./tour-detail-page.component.css']
 })
 export class TourDetailPageComponent {
-
+  
 }
