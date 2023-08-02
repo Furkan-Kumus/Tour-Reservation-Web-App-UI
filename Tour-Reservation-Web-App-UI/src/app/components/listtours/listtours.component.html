@@ -1,37 +1,149 @@
-<div class="searchbox">
-    <div id="cover">
-        <form method="get" action="">
-            <div class="tb">
-                <div class="td">
-                    <input class="ortalama" type="text" name="tourName" placeholder="Arama metninizi giriniz" [(ngModel)]="filterText"
-                        required>
-                </div>
-                <div class="td" id="s-cover">
-                    <button class="ortalama" type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="row + put-center">
-    <div *ngFor="let tour of tours | tourFilter : filterText" class="col-lg-4 col-md-6 col-sm-6">
-        <article class="card">
-            <img class="card__background" src="{{tour.imageUrl}}"
-                alt="Photo of Cartagena's cathedral at the background and some colonial style houses" width="1920"
-                height="2193" />
-            <div class="card__content | flow" style="color: white;">
-                <div class="card__content--container | flow">
-                    <h2 class="card__title">{{tour.name}}</h2>
-                    <p class="card__description">
-                        {{tour.description}}
-                    </p>
-                </div>
-                <button [routerLink]="['/home',tour.id]" class="card__button">Daha Fazla Bilgi İçin Tıklayınız</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" />
+  <title>Go Trip</title>
+</head>
+
+<body>
+
+
+
+
+
+
+  <!--===============Banner================-->
+  <section class="banner">
+    <div class="banner-text-item">
+      <div class="banner-heading">
+        <h1>Seyahat Etmenin Kolay Yolu!</h1>
+      </div>
+
+      <div class="searchbox">
+        <div id="cover">
+          <form method="get" action="">
+            <div class="tb">
+              <div class="td">
+                <input class="ortalama" type="text" name="tourName" placeholder="Arama metninizi giriniz"
+                  [(ngModel)]="filterText" required>
+              </div>
+              <div class="td" id="s-cover">
+                <button class="ortalama" type="submit">
+                  <div id="s-circle"></div>
+                  <span></span>
+                </button>
+              </div>
             </div>
-        </article>
+          </form>
+        </div>
+      </div>
+
+      <a href="#" class="book">Seyahat Et</a>
+
     </div>
-</div>
+  </section>
+  <!--==============Places===================-->
+  <section class="places">
+    <div class="places-text">
+      <h2>Favori Turlarımız</h2>
+    </div>
+    <div class="cards">
+      <div class="card" *ngFor="let tour of tours | tourFilter : filterText">
+        <div class="zoom-img">
+          <div class="img-card">
+            <img src="{{tour.imageUrl}}">
+          </div>
+        </div>
+        <div class="text">
+          <span class="rating">⭐⭐⭐⭐⭐</span>
+          <h2>{{tour.name}}</h2>
+          <p class="cost">${{tour.price}}/ Kişibaşı</p>
+          <div class="card-box">
+            <button [routerLink]="['/home',tour.id]" class="card__button">
+            <p class="time">.</p>
+            <p class="location">✈ {{tour.name}}, Türkiye</p>
+          </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--=========Services===============-->
+  <section class="services">
+    <div class="service-item">
+      <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293634/tour-guide_onzla9.png">
+      <h2>80+ Yerel Rehber</h2>
+    </div>
+    <div class="service-item">
+      <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293738/reliability_jbpn4g.png">
+      <h2>100% Güvenilirlik</h2>
+    </div>
+    <div class="service-item">
+      <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293635/experience_a3fduk.png">
+      <h2>Deneyimli kadro</h2>
+    </div>
+    <div class="service-item">
+      <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293634/feedback_s8z7d9.png">
+      <h2>98% Müşteri Memnuniyeti</h2>
+    </div>
+  </section>
+
+
+  <!--===========About Us===============-->
+  <section class="about">
+    <div class="about-img">
+      <img src="https://nationaltoday.com/wp-content/uploads/2019/05/national-tourist-appreciation-day.jpg">
+    </div>
+    <div class="about-text">
+      <small>Şirketimiz Hakkında</small>
+      <h2>TempleTOUR</h2>
+      <p>🌴 Hoş Geldiniz Tatilseverler! 🌴
+
+        Rüya gibi bir tatil deneyimi için hazır mısınız? Arzuladığınız huzur dolu kumsallar, mistik doğa güzellikleri ve
+        unutulmaz anılarla dolu bir macera için doğru adrestesiniz! Sizi sıcak bir güneşin altında bekleyen eşsiz
+        destinasyonlarla dolu tatil dünyasına hoş geldiniz!
+
+        Tarihi zenginliklerle dolu şehirlerden, masalsı adalara, heyecan dolu maceralardan, lüks konaklama seçeneklerine
+        kadar her şeyi bir arada bulabileceğiniz bir platformuz.
+
+        Haydi, tatil dünyasına açılan kapıyı aralayın ve hayatınızın en güzel anlarını yaşamak için bize katılın.
+
+
+
+        Haydi, keşfetmek ve keyif almak için bugün bize katılın! 🏖️✨</p>
+      <label><input type="checkbox" checked>TatilSitemiz, size hayallerinizdeki tatili sunmak için yola çıktı.</label>
+      <label><input type="checkbox" checked> Herkesin ihtiyaçlarına ve zevklerine uygun, geniş bir tatil seçeneği
+        yelpazesi sunuyoruz.</label>
+      <label><input type="checkbox" checked>TatilSitemiz ailesi olarak, sizinle bu yolculuğa çıkmak için
+        sabırsızlanıyoruz!</label>
+      <label><input type="checkbox" checked>Unutulmaz tatiller, anlamlı anılar ve keyif dolu maceralar sizi
+        bekliyor.</label>
+
+    </div>
+  </section>
+  <!--===========Footer=================-->
+  <div class="footer">
+    <div class="links">
+      <h3>Öne Çıkan Kategoriler</h3>
+      <ul>
+
+
+        <li>Sıkça Sorulan Sorular</li>
+        <li>Hakkımızda</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <h3>İletişim</h3>
+      <ul>
+
+        <li>İnsan Kaynakları</li>
+        <li>Müşteri İlişkileri</li>
+      </ul>
+    </div>
+  </div>
+</body>
