@@ -227,8 +227,6 @@ body {
 .searchbox .td {
   display: table-cell;
   vertical-align: middle;
-
-
   }
 
   .searchbox input,
@@ -281,11 +279,11 @@ body {
     position: relative;
     top: -8px;
     left: 0;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     margin-top: 0;
-    border-width: 15px;
-    border: 8px solid #ffffff;
+    border-width: 10px;
+    border: 7px solid #ffffff;
     background-color: transparent;
     border-radius: 50%;
     transition: 0.5s ease all;
@@ -293,13 +291,13 @@ body {
 
   .searchbox button span {
     position: absolute;
-    top: 60px;
-    left: 30px;
+    top: 50px;
+    left: 14px;
     display: block;
-    width: 39px;
-    height: 10px;
+    width: 38px;
+    height: 7px;
     background-color: transparent;
-    border-radius: 15px;
+    border-radius: 10px;
     transform: rotateZ(52deg);
     transition: 0.5s ease all;
   }
@@ -310,18 +308,18 @@ body {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 39px;
-    height: 8px;
+    width: 30px;
+    height: 6px;
     background-color: #fff;
-    border-radius: 70px;
+    border-radius: 60px;
     transform: rotateZ(0);
     transition: 0.5s ease all;
   }
 
   .searchbox #s-cover:hover #s-circle {
-    top: 1px;
+    top: 3px;
     width: 60px;
-    height: 10px;
+    height: 7px;
     border-width: 0;
     background-color: #fff;
     border-radius: 20px;
@@ -331,7 +329,7 @@ body {
     top: 50%;
     left: 50px;
     width: 20px;
-    margin-top: -7px;
+    margin-top: -1px;
     transform: rotateZ(0);
   }
 
@@ -346,7 +344,11 @@ body {
   }
   .searchbox #s-cover:hover button span:before,
   #s-cover:hover button span:after {
-    right: -6px;
-    width: 40px;
+    right: -5px;
+    width: 38px;
     background-color: #fff;
+  }
+
+  .searchbox .ortalama{
+    margin: auto;
   }
