@@ -22,21 +22,37 @@ export class RegisterpageComponent implements OnInit{
   
   ngOnInit(): void {
     this.frm = this.formBuilder.group({
-      NameSurname: ["", [Validators.required, Validators.maxLength(50), Validators.minLength(3)]],
-      Username: [""],
-      Email: [""],
-      Password: [""]
+      NameSurname: ["", [
+        Validators.required, 
+        Validators.minLength(3),
+        Validators.maxLength(50)]],
+      Username: ["", [
+        Validators.required, 
+        Validators.maxLength(50), 
+        Validators.minLength(3)]],
+      Email: ["", [
+        Validators.required, 
+        Validators.maxLength(250), 
+        Validators.minLength(10),
+        Validators.email]],
+      Password: ["", [
+        Validators.required, 
+        Validators.minLength(6),
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}')]]
     })
 
   }
 
   get component(){
-    return this.frm.controls; //37.video dk37 yap validations
+    return this.frm.controls;
   }
 
   submitted: boolean = false;
   async onSubmit(user: user) {
     this.submitted = true;
+
+    var c = this.component;
+    debugger;
 
     if (this.frm.invalid)
       return;

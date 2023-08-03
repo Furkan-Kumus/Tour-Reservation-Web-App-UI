@@ -310,7 +310,7 @@ html {
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
+    background: rgba(0,0,0,.7);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
@@ -321,6 +321,10 @@ html {
     padding: 0;
     color: #fff;
     text-align: center;
+  }
+
+  .login-box small{
+    color: #f40303;
   }
   
   .login-box .user-box {
@@ -357,11 +361,12 @@ html {
     font-size: 12px;
   }
   
-  .login-box form a {
+  .login-box form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color: #000000;/*ekle button color-------------------------------*/
+    background-color: #03e9f4;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -371,9 +376,9 @@ html {
     letter-spacing: 4px
   }
   
-  .login-box a:hover {
+  .login-box button:hover {
     background: #03e9f4;
-    color: #fff;
+    color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 0 5px #03e9f4,
                 0 0 25px #03e9f4,
@@ -381,17 +386,17 @@ html {
                 0 0 100px #03e9f4;
   }
   
-  .login-box a span {
+  .login-box button span {
     position: absolute;
     display: block;
   }
   
-  .login-box a span:nth-child(1) {
+  .login-box button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
+    background: linear-gradient(90deg, transparent, #009da5);
     animation: btn-anim1 1s linear infinite;
   }
   
@@ -404,12 +409,12 @@ html {
     }
   }
   
-  .login-box a span:nth-child(2) {
+  .login-box button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    background: linear-gradient(180deg, transparent, #009da5);
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
   }
@@ -423,12 +428,12 @@ html {
     }
   }
   
-  .login-box a span:nth-child(3) {
+  .login-box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    background: linear-gradient(270deg, transparent, #009da5);
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
   }
@@ -442,12 +447,12 @@ html {
     }
   }
   
-  .login-box a span:nth-child(4) {
+  .login-box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    background: linear-gradient(360deg, transparent, #009da5);
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
   }

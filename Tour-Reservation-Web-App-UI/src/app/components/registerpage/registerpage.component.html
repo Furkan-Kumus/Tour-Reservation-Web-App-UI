@@ -102,69 +102,76 @@
   </form>
 </div> -->
 
-
 <div class="login-box">
-  <h2>Register</h2>
+  <h2>Kayıt Ol</h2>
   <form [formGroup]="frm" (ngSubmit)="onSubmit(frm.value)">
-      <div class="user-box">
-        <input
+
+    <div class="user-box">
+      <input
         type="text"
         id="NameSurname"
         formControlName="NameSurname"
         class="c-form__input"
-        placeholder=" "
-        
-        
-  
+        required
+        [ngClass]="{'is-invalid': submitted && component.NameSurname.errors}"
       />
-          <label>name</label>
-      </div>
-      <div class="user-box">
-        <input
+      <label>Ad Soyad</label>
+      <small *ngIf="submitted && component.NameSurname.errors?.required">Lütfen adınızı ve soyadınızı giriniz!</small>
+      <small *ngIf="submitted && component.NameSurname.errors?.minlength">Ad ve Soyad 3 karakterden fazla olmalıdır!</small>
+      <small *ngIf="submitted && component.NameSurname.errors?.maxlength">Ad ve Soyad 50 karakterden az olmalıdır!</small>
+    </div>
+
+
+    <div class="user-box">
+      <input
         type="text"
         id="Username"
         class="c-form__input"
-        placeholder=" "
         formControlName="Username"
         required
       />
-          <label>username</label>
-      </div>
-      <div class="user-box">
-        <input
+      <label>Kullanıcı Adı</label>
+      <small *ngIf="submitted && component.Username.errors?.required">Lütfen kullanıcı adınızı giriniz!</small>
+      <small *ngIf="submitted && component.Username.errors?.minlength">Kullanıcı Adı 3 karakterden fazla olmalıdır!</small>
+      <small *ngIf="submitted && component.Username.errors?.maxlength">Kullanıcı Adı 50 karakterden az olmalıdır!</small>
+    </div>
+
+
+    <div class="user-box">
+      <input
         type="email"
         id="Email"
         class="c-form__input"
-        placeholder=" "
         formControlName="Email"
         required
       />
-          <label>mail</label>
-      </div>
-      <div class="user-box">
-        <input
+      <label>Mail Adresi</label>
+      <small *ngIf="submitted && component.Email.errors?.required">Lütfen mail adresinizi giriniz!</small>
+      <small *ngIf="submitted && (component.Email.errors?.email || component.Email.errors?.minlength)">Lütfen geçerli bir mail adresinizi giriniz!<br/>(10 karakterden az olamaz)</small>
+    </div>
+
+
+    <div class="user-box">
+      <input
         type="password"
         id="Password"
         class="c-form__input"
-        placeholder=" "
         formControlName="Password"
         required
       />
-          <label>Şifre</label>
-      </div>
-      <button type="submit">
-          <a>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              Ekle
-          </a>
-      </button>
-      
+      <label>Şifre</label>
+      <small *ngIf="submitted && component.Password.errors?.required">Lütfen şifrenizi giriniz!</small>
+      <small *ngIf="submitted && component.Password.errors?.pattern">Şifreniz Büyük/Küçük karakter, Özel karakter,<br/>Sayı içermelidir ve en az 8 karakter olmalıdır!</small>
+    </div>
+
+
+    <button type="submit">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Ekle
+    </button>
+
   </form>
 </div>
-
-
-
-
