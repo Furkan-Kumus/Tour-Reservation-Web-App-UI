@@ -7,9 +7,10 @@
     </h2>
     <ul>
       <li><a routerLink="home"><i class="fa fa-home"></i> Anasayfa</a></li>
-      <li><a routerLink="admin"><i class="fa fa-user-secret"></i> Admin</a></li>
-      <li><a routerLink="login"><i class="fa fa-user-circle"></i> Giriş Yap</a></li>
-      <li><a routerLink="register"><i class="fa fa-pencil"></i> Kayıt Ol</a></li>
+      <li *ngIf="authService.isAuthenticated"><a routerLink="admin"><i class="fa fa-user-secret"></i> Admin</a></li>
+      <li *ngIf="!authService.isAuthenticated"><a routerLink="login"><i class="fa fa-user-circle"></i> Giriş Yap</a></li>
+      <li *ngIf="!authService.isAuthenticated"><a routerLink="register"><i class="fa fa-pencil"></i> Kayıt Ol</a></li>
+      <li><a style="color:red;cursor:pointer;" (click)="signOut()" *ngIf="authService.isAuthenticated"><i class="fa fa-sign-out"></i> Çıkış Yap</a></li>
     </ul>
     <div class="social_media">
       <a href="https://github.com/Furkan-Kumus/Tour-Reservation-Web-App-UI"><i class="fab fa-github"></i></a>

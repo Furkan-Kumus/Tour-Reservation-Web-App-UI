@@ -25,7 +25,7 @@ export class LoginpageComponent implements OnInit {
         if (returnUrl)
           this.router.navigate([returnUrl]);  
           else
-          this.router.navigate(["home"]);
+          this.router.navigate([""]);
       });
     });
   }

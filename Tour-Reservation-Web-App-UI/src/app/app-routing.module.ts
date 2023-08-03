@@ -20,7 +20,7 @@ const routes: Routes = [
 ], canActivate: [AuthGuard]
 },
   {path :'register',component : RegisterpageComponent},
-  {path :'home',component : ListtoursComponent},
+  {path :'',component : ListtoursComponent},
   {path :'login',component : LoginpageComponent},
   {path :'home/:id',component : TourDetailPageComponent},
   {path :'asked',component : AskedComponent},
