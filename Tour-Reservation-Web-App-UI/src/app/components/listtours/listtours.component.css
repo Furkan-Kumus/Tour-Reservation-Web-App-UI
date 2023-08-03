@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap");
 body {
-	background: #0a0a84;
+	background: #749BC2;
 	
 	font-family: "Montserrat", sans-serif;
 }
 header {
 	text-align: center;
-	background: #8BE8E5;
-	padding-top: 2rem;
+	background: #F6F4EB;
+	padding-top: 1rem;
 }
 header h1 {
-	font-size: 5rem;
+	font-size: rem;
 	margin: 0;
-	color: #c20000;
+	color: #4682A9;
 	text-transform: uppercase;
 }
 header h2 {
-	color: #e10000;
+	color: #6F61C0;
 	font-weight: 100;
 }
 .article-meta {
@@ -29,7 +29,7 @@ header h2 {
 }
 .section {
 	padding: 4rem 2rem;
-	background: #8BE8E5;
+	background: #F6F4EB;
 }
 .container {
 	width: 80%;
@@ -75,7 +75,7 @@ figcaption {
 }
 .mag_content {
 	padding: 20px;
-	background: #8BE8E5;
+	background: #F6F4EB;
 }
 .mag_content p {
 	color: rgba(255, 255, 255, 0.5);
@@ -114,7 +114,7 @@ figcaption {
   position: relative;
   height: 70px;
   width: 100%;
-  background: #361e86;
+  background: #749BC2;
   color: #fff;
 }
 .card .header .big {
@@ -349,7 +349,7 @@ figcaption {
 	color: #abafc6;
 	border-radius: 5px;
 	padding: 20px;
-	width: 600px;
+	width: 500px;
 	height: 400px;
   justify-content: center;
 }
@@ -476,4 +476,68 @@ figcaption {
 
 .info span {
 	color: #fff;
+}
+.places-text {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.places-text small {
+  font-family: Roboto;
+  color: #4c380c;
+  font-size: 15px;
+  font-weight: bolder;
+}
+.places-text h2 {
+  font-family: Barlow Condensed;
+  font-size: 55px;
+  color: #191d34;
+  letter-spacing: 1px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 30px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+.card {
+  border: 1px solid lightgray;
+  box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 80%;
+  height: auto;
+}
+.card img {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.cards .text {
+  padding: 20px;
+  font-family: Barlow Condensed;
+  line-height: 50px;
+}
+.cards .card-box {
+  display: flex;
+  flex-flow: row;
+  background-color: #3dc5ff;
+  font-size: 18px;
+  font-family: Roboto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.cards .time {
+  flex: 1;
+}
+.cards .location {
+  flex: 2;
+}
+.cards .cost {
+  color: #4cafad;
+  font-size: 20px;
 }
