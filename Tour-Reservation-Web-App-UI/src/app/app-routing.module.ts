@@ -14,7 +14,7 @@ import { AdminpagesComponent } from './admin/components/adminpages/adminpages.co
 const routes: Routes = [
   {
     path: "admin", component: LayoutComponent, children: [
-      { path: "", component: AdminpagesComponent, },
+      { path: "admin", component: AdminpagesComponent, },
       /* {path : "adminpages", loadChildren : ()=> import("./admin/components/adminpages/adminpages.module").then
       (module => module.AdminpagesModule)} */
 ], canActivate: [AuthGuard]

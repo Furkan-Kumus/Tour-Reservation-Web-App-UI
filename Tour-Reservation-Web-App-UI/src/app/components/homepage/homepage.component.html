@@ -6,7 +6,7 @@
       <img src="http://kod.com.tr/Images/logo.png" height="36" alt="" loading="lazy" style="margin-top: -1px;" />
     </h2>
     <ul>
-      <li><a routerLink="home"><i class="fa fa-home"></i> Anasayfa</a></li>
+      <li><a routerLink=""><i class="fa fa-home"></i> Anasayfa</a></li>
       <li *ngIf="authService.isAuthenticated"><a routerLink="admin"><i class="fa fa-user-secret"></i> Admin</a></li>
       <li *ngIf="!authService.isAuthenticated"><a routerLink="login"><i class="fa fa-user-circle"></i> Giriş Yap</a></li>
       <li *ngIf="!authService.isAuthenticated"><a routerLink="register"><i class="fa fa-pencil"></i> Kayıt Ol</a></li>

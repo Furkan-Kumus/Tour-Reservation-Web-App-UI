@@ -52,8 +52,8 @@ export class RegisterpageComponent implements OnInit{
     this.submitted = true;
 
     var c = this.component;
-    debugger;
-
+    
+    
     if (this.frm.invalid)
       return;
 
