@@ -9,34 +9,18 @@ import { _isAuthenticated } from 'src/app/services/common/auth.service';
 
 export class AuthGuard implements CanActivate {
 
-  constructor(private jwtHelper: JwtHelperService, private router: Router) {
+  constructor(private jwtHelper: JwtHelperService, /* private toastrService: CustomToastrService, */ private router: Router) {
 
   }
 
 canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-
-  /* const token: string = localStorage.getItem("accessToken");
-
-  let expired: boolean;
-    try {
-      expired = this.jwtHelper.isTokenExpired(token);
-    } catch {
-      expired = true;
-    } */
-
-
     if (!_isAuthenticated) {
       this.router.navigate(["login"], { queryParams: { returnUrl: state.url } });
+    // this.toastrService.message("Oturum açmanız gerekiyor!", "Yetkisiz Erişim!", {        messageType: ToastrMessageType.Warning,        position: ToastrPosition.TopRight })
+    
     }
  
-    
-
     return true;
   }
- 
-  //navbar html li içine ekle       *ngIf="!authService.isAuthenticated"
-  //navbar html ekle                <li><a style="color:red;cursor:pointer;" (click)="signOut()" *ngIf="authService.isAuthenticated"><i class="fa fa-sign-out"></i> Çıkış Yap</a></li>
-  //navbar ts                       constructor(public authService:AuthService,private router: Router){authService.identityCheck();}signOut() {localStorage.removeItem("accessToken");this.authService.identityCheck();this.router.navigate([""]);}  
-
   
 };

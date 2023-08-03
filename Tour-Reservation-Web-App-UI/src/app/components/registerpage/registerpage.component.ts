@@ -15,6 +15,7 @@ import { UserService } from 'src/app/services/common/models/user.service';
 export class RegisterpageComponent implements OnInit{
 
   constructor(
+    /* private toastrService: CustomToastrService, */
     private formBuilder: FormBuilder, 
     private userService:UserService){}
   
@@ -58,21 +59,20 @@ export class RegisterpageComponent implements OnInit{
       return;
 
     const result: Create_User = await this.userService.create(user);
+
+/* 
+    if (result.succeeded)
+      this.toastrService.message(result.message, "Kullanıcı Kaydı Başarılı", {
+        messageType: ToastrMessageType.Success,
+        position: ToastrPosition.TopRight
+      })
+    else
+      this.toastrService.message(result.message, "Hata", {
+        messageType: ToastrMessageType.Error,
+        position: ToastrPosition.TopRight
+      }) */
+
+
   }
 
-  //yeni kullanıcı kaydetme alternatifi api, database, client //bunu onSubmit'te çağır -> this.saveRegister();
-  // saveRegister(){
-  //   const model = {
-  //     NameSurname:"stiris", 
-  //     Username:"strsagza",
-  //     Email:"zlatan@gail.com",
-  //     Password:"qsdgf23A*"
-  //   }
-
-  //   var x = new RequestParameters();
-  //   x.fullEndPoint = environment.url + ApiAdresses.loginOperations.register
-  //   this.httpClientService.post(x, model).subscribe((res) => {
-
-  //   });
-  // }
 }

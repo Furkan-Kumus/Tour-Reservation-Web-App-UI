@@ -8,6 +8,13 @@ import { AuthService } from 'src/app/services/common/auth.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-  constructor(public authService:AuthService,private router: Router){authService.identityCheck();}signOut() {localStorage.removeItem("accessToken");this.authService.identityCheck();this.router.navigate([""]);}  
+  constructor(public authService:AuthService, /* private toastrService: CustomToastrService */  ,private router: Router){authService.identityCheck();}signOut() {localStorage.removeItem("accessToken");this.authService.identityCheck();this.router.navigate([""]);
+  
+ /*  this.toastrService.message("Oturum kapatılmıştır!", "Oturum Kapatıldı", {
+    messageType: ToastrMessageType.Warning,
+    position: ToastrPosition.TopRight
+  }); */
+
+}  
 
 }

@@ -10,7 +10,7 @@ import { TokenResponse } from 'src/app/contracts/token/tokenResponse';
 })
 export class UserService {
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private httpClientService: HttpClientService, /* private toastrService: CustomToastrService */) { }
 
   async create(user: user): Promise<Create_User>{
     const observable : Observable<Create_User | user> = this.httpClientService.post<Create_User | user>({
@@ -28,6 +28,7 @@ export class UserService {
     const tokenResponse: TokenResponse = await firstValueFrom(observable) as TokenResponse;
     if (tokenResponse) {
       localStorage.setItem("accessToken", tokenResponse.token.accessToken); 
+      /* this.toastrService.message("Kullanıcı girişi başarıyla sağlanmıştır.", "Giriş Başarılı", {messageType: ToastrMessageType.Success,        position: ToastrPosition.TopRight}) */
     }
 
 
