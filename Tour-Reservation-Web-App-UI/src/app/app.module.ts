@@ -13,6 +13,7 @@ import { AskedComponent } from './components/asked/asked.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 
@@ -34,7 +35,13 @@ import { AdminModule } from './admin/admin.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AdminModule
+    AdminModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter: () => localStorage.getItem("accessToken"),
+        allowedDomains: ["localhost:7246"]
+      }
+    })
   ],
   providers: [
     { provide: "baseUrl", useValue: "https://localhost:7246/api", multi: true }

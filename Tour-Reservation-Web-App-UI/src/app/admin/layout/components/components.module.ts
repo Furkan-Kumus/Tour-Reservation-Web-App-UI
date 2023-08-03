@@ -13,7 +13,7 @@ import { AdminheaderComponent } from './adminheader/adminheader.component';
     CommonModule
   ],
   exports:[
-    AdminheaderComponent
+    AdminheaderComponent,
   ]
 })
 export class ComponentsModule { }
