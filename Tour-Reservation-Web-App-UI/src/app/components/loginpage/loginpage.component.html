@@ -1,4 +1,4 @@
-<input class="c-checkbox" type="checkbox" id="start">
+<!-- <input class="c-checkbox" type="checkbox" id="start">
 <input class="c-checkbox" type="checkbox" id="progress2">
 <input class="c-checkbox" type="checkbox" id="finish">
 <div class="c-form__progress"></div>
@@ -16,8 +16,8 @@
           <span class="c-form__nextIcon"></span>
         </label>
 
-      <span class="c-form__groupLabel">E-mail Adresi:</span>
-      <b class="c-form__border"></b>
+        <span class="c-form__groupLabel">E-mail?</span>
+        <b class="c-form__border"></b>
       </label>
     </div>
 
@@ -29,12 +29,41 @@
           <span class="c-form__nextIcon"></span>
         </label>
 
-      <span class="c-form__groupLabel">Şifre:</span>
-      <b class="c-form__border"></b>
+        <span class="c-form__groupLabel">Şifre</span>
+        <b class="c-form__border"></b>
       </label>
     </div>
 
     <label class="c-form__toggle" for="start">Yönetici Giriş<span class="c-form__toggleIcon"></span></label>
     <label class="c-form__toggle" for="start">Kullanıcı Girişi<span class="c-form__toggleIcon"></span></label>
   </form>
+</div> -->
+
+<div class="login-box">
+  <h2>Login</h2>
+  <div class="user-box">
+    <input
+      #txtUsernameOrEmail
+      type="text"
+      id="username"
+      class="c-form__input"
+      required
+    />
+    <label>mail</label>
+  </div>
+  <div class="user-box">
+    <input
+      #txtPassword
+      type="password"
+      id="Password"
+      class="c-form__input"
+      required
+    />
+    <label>Şifre</label>
+  </div>
+  <button type="submit" (click)="login(txtUsernameOrEmail.value, txtPassword.value)">
+   
+      Ekle
+    
+  </button>
 </div>
