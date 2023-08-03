@@ -61,12 +61,16 @@
     />
     <label>Şifre</label>
   </div>
-  
-  <button type="submit">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    Ekle
-  </button>
+
+  <form>
+    <button
+      type="submit"
+      (click)="login(txtUsernameOrEmail.value, txtPassword.value)">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Ekle
+    </button>
+  </form>
 </div>
