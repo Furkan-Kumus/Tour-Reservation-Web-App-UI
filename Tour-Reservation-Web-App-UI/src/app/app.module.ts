@@ -12,6 +12,7 @@ import { TourFilterPipe } from './components/listtours/tour-filter.pipe';
 import { AskedComponent } from './components/asked/asked.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -32,7 +33,8 @@ import { HttpClientModule } from  '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminModule
   ],
   providers: [
     { provide: "baseUrl", useValue: "https://localhost:7246/api", multi: true }

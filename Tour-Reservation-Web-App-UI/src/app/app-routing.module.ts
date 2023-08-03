@@ -6,9 +6,19 @@ import { ListtoursComponent } from './components/listtours/listtours.component';
 import { TourDetailPageComponent } from './components/tour-detail-page/tour-detail-page.component';
 import { AskedComponent } from './components/asked/asked.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
+import { AuthGuard } from './guards/common/auth.guard';
+import { LayoutComponent } from './admin/layout/layout.component';
+import { AdminpagesComponent } from './admin/components/adminpages/adminpages.component';
 
 
 const routes: Routes = [
+  {
+    path: "admin", component: LayoutComponent, children: [
+      { path: "", component: AdminpagesComponent, },
+      /* {path : "adminpages", loadChildren : ()=> import("./admin/components/adminpages/adminpages.module").then
+      (module => module.AdminpagesModule)} */
+], canActivate: [AuthGuard]
+},
   {path :'register',component : RegisterpageComponent},
   {path :'home',component : ListtoursComponent},
   {path :'login',component : LoginpageComponent},
