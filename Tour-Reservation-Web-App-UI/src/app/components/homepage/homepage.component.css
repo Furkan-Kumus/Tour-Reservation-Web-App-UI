@@ -18,15 +18,35 @@ body{
   position: relative;
 }
 
-.wrapper .sidebar{
+.wrapper #sidebar{
   width: 160px;
   height: 100%;
   background: #4b4276;
-  padding: 30px 0px;
+  padding: 60px 0px;
   position: fixed;
+  left: -300px;
+  transition: .4s;
 }
 
-.wrapper .sidebar h2{
+.wrapper #sidebar.active{
+  left: 0;
+}
+
+.wrapper #sidebar .toggle-btn{
+  position:fixed;
+  top: 30px;
+  left: 10px;
+}
+
+.wrapper #sidebar .toggle-btn span{
+  width: 45px;
+  height: 4px;
+  background: #000;
+  display: block;
+  margin-top: 4px;
+}
+
+.wrapper #sidebar h2{
   height:auto;
   width:auto;
   margin:auto;
@@ -36,31 +56,33 @@ body{
   margin-bottom: 30px;
 }
 
-.wrapper .sidebar ul li{
+.wrapper #sidebar ul li{
   padding: 15px;
   border-bottom: 1px solid #bdb8d7;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   border-top: 1px solid rgba(255,255,255,0.05);
+  list-style: none;
+
 }    
 
-.wrapper .sidebar ul li a{
+.wrapper #sidebar ul li a{
   color: #bdb8d7;
   display: block;
 }
 
-.wrapper .sidebar ul li a .fas{
+.wrapper #sidebar ul li a .fas{
   width: 25px;
 }
 
-.wrapper .sidebar ul li:hover{
+.wrapper #sidebar ul li:hover{
   background-color: #594f8d;
 }
     
-.wrapper .sidebar ul li:hover a{
+.wrapper #sidebar ul li:hover a{
   color: #fff;
 }
  
-.wrapper .sidebar .social_media{
+.wrapper #sidebar .social_media{
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -68,7 +90,7 @@ body{
   display: flex;
 }
 
-.wrapper .sidebar .social_media a{
+.wrapper #sidebar .social_media a{
   display: block;
   width: 40px;
   background: #594f8d;
@@ -81,30 +103,3 @@ body{
   border-top-right-radius: 5px;
 }
 
-.wrapper .main_content{
-  width: 100%;
-  margin-left: 200px;
-}
-
-.wrapper .main_content .header{
-  padding: 20px;
-  background: #fff;
-  color: #717171;
-  border-bottom: 1px solid #e0e4e8;
-}
-
-.wrapper .main_content .info{
-  margin: 20px;
-  color: #717171;
-  line-height: 25px;
-}
-
-.wrapper .main_content .info div{
-  margin-bottom: 20px;
-}
-
-@media (max-height: 500px){
-  .social_media{
-    display: none !important;
-  }
-}
