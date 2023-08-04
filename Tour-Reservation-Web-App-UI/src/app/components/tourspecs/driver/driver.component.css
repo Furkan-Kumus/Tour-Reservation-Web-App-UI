@@ -1,0 +1,26 @@
+.table_design{
+    width: 80%;
+    padding-top: 5%;
+    margin: auto;
+}
+
+.table_design .arabatablo {
+    border-collapse: collapse;
+    font-family: 'PT Sans', sans-serif;
+    width:100%;
+}
+.table_design .arabatablo td, .table_design .arabatablo th {
+    border: 1px solid rgb(113, 91, 98);
+    padding: 8px 12px;
+}
+.table_design .arabatablo th {
+    text-align: left;
+    background-color:#e0ca39;
+    color:white;
+}
+.table_design .arabatablo tr:hover{
+    background-color: #edc6ff;
+}
+.table_design .arabatablo tr:nth-child(even){
+    background-color:rgb(250, 245, 194);
+}

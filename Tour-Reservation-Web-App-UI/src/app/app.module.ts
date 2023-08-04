@@ -14,6 +14,13 @@ import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 import { JwtModule } from '@auth0/angular-jwt';
+import { FlightsComponent } from './components/tourspecs/flights/flights.component';
+import { CountryComponent } from './components/tourspecs/country/country.component';
+import { RegionComponent } from './components/tourspecs/region/region.component';
+import { AirportComponent } from './components/tourspecs/airport/airport.component';
+import { CarComponent } from './components/tourspecs/car/car.component';
+import { DriverComponent } from './components/tourspecs/driver/driver.component';
+import { UserComponent } from './components/tourspecs/user/user.component';
 
 
 
@@ -27,7 +34,14 @@ import { JwtModule } from '@auth0/angular-jwt';
     TourDetailPageComponent,
     TourFilterPipe,
     AskedComponent,
-    AdminpageComponent
+    AdminpageComponent,
+    FlightsComponent,
+    CountryComponent,
+    RegionComponent,
+    AirportComponent,
+    CarComponent,
+    DriverComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

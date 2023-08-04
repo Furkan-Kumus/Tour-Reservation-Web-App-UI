@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <form [formGroup]="frmFlight" (ngSubmit)="addFlight(frmFlight.value)">
+      <div class="table_design">
+        <table class="arabatablo">
+
+          <tr *ngIf="isSubmitted">
+            
+            <th><input 
+              placeholder="Id otomatik oluşturulmaktadır." 
+              type="text"
+              /></th>
+
+            <th><input 
+              placeholder="Uçuş Kodunu Giriniz" 
+              type="text" 
+              id="FlightCode"
+              formControlName="FlightCode"
+              /></th>
+
+            <th><input 
+              placeholder="Uçuş Bölgesini Giriniz" 
+              type="text" 
+              id="FlightRegion"
+              formControlName="FlightRegion"
+              /></th>
+
+            <th style="width: 60px; text-align: center;"><button type="submit" style="margin-right: 7px;">Ekle</button><button (click)="closeTab()">X</button></th>
+          </tr>
+
+          <tr>
+            <th>Id</th>
+            <th>Kod</th>
+            <th>Bölge</th>
+            <th colspan="2" style="text-align: center;"><button (click)="opentab()">Uçuş Ekle</button></th>
+          </tr>
+
+          <tr>
+            <td>101</td>
+            <td>PGS</td>
+            <td>Antalya</td>
+            <td style="width: 140px">
+                <button style="margin-right: 5px;">Güncelle</button>
+                <button >Sil</button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </form>
+  </body>
+</html>
