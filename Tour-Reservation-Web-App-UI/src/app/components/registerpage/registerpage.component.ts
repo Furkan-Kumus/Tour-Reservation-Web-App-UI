@@ -70,17 +70,6 @@ export class RegisterpageComponent implements OnInit{
     else{
       this.toastr.error("Aynı Kullanıcı Adına Sahip Birden Çok Kullanıcı Olamaz!", "Kayıt Başarısız!")
     }
-/* 
-    if (result.succeeded)
-      this.toastrService.message(result.message, "Kullanıcı Kaydı Başarılı", {
-        messageType: ToastrMessageType.Success,
-        position: ToastrPosition.TopRight
-      })
-    else
-      this.toastrService.message(result.message, "Hata", {
-        messageType: ToastrMessageType.Error,
-        position: ToastrPosition.TopRight
-      }) */
 
 
   }

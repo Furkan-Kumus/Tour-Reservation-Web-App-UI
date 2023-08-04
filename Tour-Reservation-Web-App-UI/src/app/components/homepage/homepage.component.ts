@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/common/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/services/common/auth.service';
 export class HomepageComponent {
   constructor(
     public authService: AuthService,
-    /* private toastrService: CustomToastrService */ private router: Router
+    private toastr: ToastrService, private router: Router
   ) {
     authService.identityCheck();
   }
@@ -19,10 +20,7 @@ export class HomepageComponent {
     this.authService.identityCheck();
     this.router.navigate(['']);
 
-    /*  this.toastrService.message("Oturum kapatılmıştır!", "Oturum Kapatıldı", {
-    messageType: ToastrMessageType.Warning,
-    position: ToastrPosition.TopRight
-  }); */
+    this.toastr.warning("Oturum Kapatlımıştır")
   }
 
   show() {
