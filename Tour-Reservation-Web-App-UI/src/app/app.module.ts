@@ -21,7 +21,8 @@ import { AirportComponent } from './components/tourspecs/airport/airport.compone
 import { CarComponent } from './components/tourspecs/car/car.component';
 import { DriverComponent } from './components/tourspecs/driver/driver.component';
 import { UserComponent } from './components/tourspecs/user/user.component';
-
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -45,11 +46,16 @@ import { UserComponent } from './components/tourspecs/user/user.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AdminModule,
+    ToastrModule.forRoot({
+      progressBar: true,
+      progressAnimation: 'increasing'
+    }),
     JwtModule.forRoot({
       config:{
         tokenGetter: () => localStorage.getItem("accessToken"),

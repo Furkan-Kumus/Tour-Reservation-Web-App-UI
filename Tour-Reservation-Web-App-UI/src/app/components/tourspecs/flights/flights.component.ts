@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Create_Flight } from 'src/app/contracts/users/create_flight';
 import { flight } from 'src/app/entities/flight';
 import { FlightService } from 'src/app/services/common/models/flight.service';
@@ -13,7 +14,8 @@ export class FlightsComponent implements OnInit {
   constructor(
     /* private toastrService: CustomToastrService, */
     private formBuilder: FormBuilder,
-    private flightService: FlightService
+    private flightService: FlightService,
+    private toastr: ToastrService
   ) {}
 
   frmFlight: FormGroup;
@@ -35,6 +37,8 @@ export class FlightsComponent implements OnInit {
     if (this.frmFlight.invalid) {
       return;
     }
+
+    this.toastr.success( "Kayıt Başarıyla Database'e Kaydedilmiştir.", "Uçuş Kaydı Başarılı!")
     
     const result: Create_Flight = await this.flightService.create(flight);
   }

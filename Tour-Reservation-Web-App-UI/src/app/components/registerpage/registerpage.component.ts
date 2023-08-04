@@ -2,6 +2,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Create_User } from 'src/app/contracts/users/create_user';
 import { user } from 'src/app/entities/user';
 import { UserService } from 'src/app/services/common/models/user.service';
@@ -17,7 +18,9 @@ export class RegisterpageComponent implements OnInit{
   constructor(
     /* private toastrService: CustomToastrService, */
     private formBuilder: FormBuilder, 
-    private userService:UserService){}
+    private userService:UserService,
+    private toastr: ToastrService
+    ){}
   
   frm : FormGroup;
   
@@ -49,6 +52,7 @@ export class RegisterpageComponent implements OnInit{
   }
 
   submitted: boolean = false;
+
   async onSubmit(user: user) {
     this.submitted = true;
 
@@ -60,6 +64,12 @@ export class RegisterpageComponent implements OnInit{
 
     const result: Create_User = await this.userService.create(user);
 
+    if (result.succeeded) {
+      this.toastr.success("Kullanıcı Kaydı Başarılı.")
+    }
+    else{
+      this.toastr.error("Aynı Kullanıcı Adına Sahip Birden Çok Kullanıcı Olamaz!", "Kayıt Başarısız!")
+    }
 /* 
     if (result.succeeded)
       this.toastrService.message(result.message, "Kullanıcı Kaydı Başarılı", {
