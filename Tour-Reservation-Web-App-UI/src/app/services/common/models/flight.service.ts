@@ -9,11 +9,11 @@ import { Observable, firstValueFrom } from 'rxjs';
 })
 export class FlightService {
 
-  constructor(private httpClientService: HttpClientService, /* private toastrService: CustomToastrService */) { }
+  constructor(private httpClientService: HttpClientService) { }
 
   async create(flight: flight): Promise<Create_Flight>{
     const observable : Observable<Create_Flight | flight> = this.httpClientService.post<Create_Flight | flight>({
-      controller:"tourElements/Post"
+      controller:"tourElements/Post/Flight"
     }, flight);
 
     return await firstValueFrom(observable) as Create_Flight;

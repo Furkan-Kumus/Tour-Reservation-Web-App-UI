@@ -12,7 +12,6 @@ import { FlightService } from 'src/app/services/common/models/flight.service';
 })
 export class FlightsComponent implements OnInit {
   constructor(
-    /* private toastrService: CustomToastrService, */
     private formBuilder: FormBuilder,
     private flightService: FlightService,
     private toastr: ToastrService
