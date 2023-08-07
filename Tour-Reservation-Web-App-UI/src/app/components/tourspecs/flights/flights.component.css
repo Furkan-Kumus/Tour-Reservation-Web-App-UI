@@ -1,3 +1,10 @@
+.mat-elevation-z8{
+    /*scale: 0.9;*/
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
+
 .table_design{
     width: 80%;
     padding-top: 5%;

@@ -1,43 +1,86 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <form [formGroup]="frmFlight" (ngSubmit)="addFlight(frmFlight.value)">
-      <div class="table_design">
-        <table class="arabatablo">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let flights">{{ flights.id }}</td>
+    </ng-container>
 
-          <tr *ngIf="isSubmitted">
-            
-            <th><h6 style="text-align: center;">Id otomatik oluşturulmaktadır.</h6></th>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="FlightCode">
+      <th mat-header-cell *matHeaderCellDef>Uçuş Kodu</th>
+      <td mat-cell *matCellDef="let flights">{{ flights.flightCode }}</td>
+    </ng-container>
 
-            <th><input 
-              placeholder="Uçuş Kodunu Giriniz" 
-              type="text" 
-              id="FlightCode"
-              formControlName="FlightCode"
-              /></th>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="FlightRegion">
+      <th mat-header-cell *matHeaderCellDef>Uçuş Bölgesi</th>
+      <td mat-cell *matCellDef="let flights">{{ flights.flightRegion }}</td>
+    </ng-container>
 
-            <th><input 
-              placeholder="Uçuş Bölgesini Giriniz" 
-              type="text" 
-              id="FlightRegion"
-              formControlName="FlightRegion"
-              /></th>
+    <ng-container matColumnDef="updel">
+      <th mat-header-cell *matHeaderCellDef>
+        <button (click)="opentab()">Uçuş Ekle</button>
+      </th>
+      <td mat-cell *matCellDef="let flights">
+        <button style="margin-right: 5px;">Güncelle</button>
+        <button>Sil</button>
+      </td>
+    </ng-container>
 
-            <th style="width: 60px; text-align: center;"><button type="submit" style="margin-right: 7px;">Ekle</button><button (click)="closeTab()">X</button></th>
-          </tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 
+  <mat-paginator
+    (page)="pageChanged()"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+
+
+
+
+<form [formGroup]="frmFlight" (ngSubmit)="addFlight(frmFlight.value)">
+  <div class="table_design">
+    <table class="arabatablo">
+      <tr *ngIf="isSubmitted">
+        <th>
+          <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
+        </th>
+
+        <th>
+          <input
+            placeholder="Uçuş Kodunu Giriniz"
+            type="text"
+            id="FlightCode"
+            formControlName="FlightCode"
+          />
+        </th>
+
+        <th>
+          <input
+            placeholder="Uçuş Bölgesini Giriniz"
+            type="text"
+            id="FlightRegion"
+            formControlName="FlightRegion"
+          />
+        </th>
+
+        <th style="width: 60px; text-align: center">
+          <button type="submit" style="margin-right: 7px">Ekle</button
+          ><button (click)="closeTab()"  onClick="window.location.reload();">X</button>
+        </th>
+      </tr>
+      <!-- 
           <tr>
             <th>Id</th>
             <th>Kod</th>
             <th>Bölge</th>
-            <th colspan="2" style="text-align: center;"><button (click)="opentab()">Uçuş Ekle</button></th>
+            <th style="text-align: center;"><button (click)="opentab()">Uçuş Ekle</button></th>
           </tr>
 
           <tr>
@@ -48,10 +91,7 @@
                 <button style="margin-right: 5px;">Güncelle</button>
                 <button >Sil</button>
             </td>
-          </tr>
-
-        </table>
-      </div>
-    </form>
-  </body>
-</html>
+          </tr> -->
+    </table>
+  </div>
+</form>

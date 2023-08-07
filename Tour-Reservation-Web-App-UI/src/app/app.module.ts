@@ -11,7 +11,7 @@ import { TourDetailPageComponent } from './components/tour-detail-page/tour-deta
 import { TourFilterPipe } from './components/listtours/tour-filter.pipe';
 import { AskedComponent } from './components/asked/asked.component';
 import { AdminpageComponent } from './components/adminpage/adminpage.component';
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FlightsComponent } from './components/tourspecs/flights/flights.component';
@@ -23,6 +23,8 @@ import { DriverComponent } from './components/tourspecs/driver/driver.component'
 import { UserComponent } from './components/tourspecs/user/user.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -42,7 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AirportComponent,
     CarComponent,
     DriverComponent,
-    UserComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,18 +56,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminModule,
     ToastrModule.forRoot({
       progressBar: true,
-      progressAnimation: 'increasing'
+      progressAnimation: 'increasing',
     }),
     JwtModule.forRoot({
-      config:{
-        tokenGetter: () => localStorage.getItem("accessToken"),
-        allowedDomains: ["localhost:7246"]
-      }
-    })
+      config: {
+        tokenGetter: () => localStorage.getItem('accessToken'),
+        allowedDomains: ['localhost:7246'],
+      },
+    }),
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
-    { provide: "baseUrl", useValue: "https://localhost:7246/api", multi: true }
+    { provide: 'baseUrl', useValue: 'https://localhost:7246/api', multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

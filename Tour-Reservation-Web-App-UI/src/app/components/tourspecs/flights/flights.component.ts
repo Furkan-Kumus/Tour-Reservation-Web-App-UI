@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource,  } from '@angular/material/table';
+
 import { ToastrService } from 'ngx-toastr';
+import { List_Flight } from 'src/app/contracts/tour_elements/list_flight';
 import { Create_Flight } from 'src/app/contracts/users/create_flight';
 import { flight } from 'src/app/entities/flight';
 import { FlightService } from 'src/app/services/common/models/flight.service';
@@ -17,13 +21,27 @@ export class FlightsComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
+  displayedColumns: string[] = ['Id', 'FlightCode', 'FlightRegion', 'updel'];
+  dataSource: MatTableDataSource<List_Flight> = null;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  
   frmFlight: FormGroup;
 
-  ngOnInit(): void {
+  async getFlights() {
+    const allFlights: { totalCount: number; flights: List_Flight[] } = await this.flightService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+    this.dataSource = new MatTableDataSource<List_Flight>(allFlights.flights);
+    console.log(this.dataSource);
+    
+    this.paginator.length = allFlights.totalCount;
+  }
+
+  async ngOnInit(){
     this.frmFlight = this.formBuilder.group({
       FlightCode: ['', [Validators.required]],
       FlightRegion: ['', [Validators.required]],
     });
+
+    await this.getFlights();
   }
 
   get component() {
@@ -36,10 +54,11 @@ export class FlightsComponent implements OnInit {
     if (this.frmFlight.invalid) {
       return;
     }
-
+    
     this.toastr.success( "Kayıt Başarıyla Database'e Kaydedilmiştir.", "Uçuş Kaydı Başarılı!")
     
     const result: Create_Flight = await this.flightService.create(flight);
+    await this.getFlights();
   }
 
   opentab() {
@@ -49,4 +68,10 @@ export class FlightsComponent implements OnInit {
   closeTab() {
     this.isSubmitted = false;
   }
+
+  async pageChanged() {
+    await this.getFlights();
+  }
+
+
 }
