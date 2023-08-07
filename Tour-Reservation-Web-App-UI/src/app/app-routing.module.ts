@@ -11,6 +11,11 @@ import { LayoutComponent } from './admin/layout/layout.component';
 import { AdminpagesComponent } from './admin/components/adminpages/adminpages.component';
 import { FlightsComponent } from './components/tourspecs/flights/flights.component';
 import { AirportComponent } from './components/tourspecs/airport/airport.component';
+import { CountryComponent } from './components/tourspecs/country/country.component';
+import { DriverComponent } from './components/tourspecs/driver/driver.component';
+import { UserComponent } from './components/tourspecs/user/user.component';
+import { RegionComponent } from './components/tourspecs/region/region.component';
+import { CarComponent } from './components/tourspecs/car/car.component';
 
 
 const routes: Routes = [
@@ -31,7 +36,13 @@ const routes: Routes = [
   {path :'',component : ListtoursComponent},
   {path :'login',component : LoginpageComponent},
   {path :'home/:id',component : TourDetailPageComponent},
-  {path :'asked',component : AskedComponent}
+  {path :'asked',component : AskedComponent},
+  {path :'country',component : CountryComponent ,canActivate: [AuthGuard] },
+  {path :'flights',component : FlightsComponent,canActivate: [AuthGuard] },
+  {path :'car',component : CarComponent,canActivate: [AuthGuard] },
+  {path :'region',component : RegionComponent,canActivate: [AuthGuard] },
+  {path :'user',component : UserComponent,canActivate: [AuthGuard] },
+  {path :'driver',component : DriverComponent,canActivate: [AuthGuard] },
 ];
 
 @NgModule({
