@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DeleteDirective } from './directives/admin/delete.directive';
+import { CityComponent } from './components/tourspecs/city/city.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { DeleteDirective } from './directives/admin/delete.directive';
     CarComponent,
     DriverComponent,
     UserComponent,
-    DeleteDirective
+    DeleteDirective,
+    CityComponent
   ],
   imports: [
     BrowserModule,

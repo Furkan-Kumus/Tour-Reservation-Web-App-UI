@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <form (ngSubmit)="addCity()" (reset)="closeTab()">
+      <div class="table_design">
+        <table class="arabatablo">
+
+          <tr *ngIf="isSubmitted">
+            <th><input placeholder="Id Giriniz" type="text" /></th>
+            <th><input placeholder="Ülke İsmini   Giriniz" type="text" /></th>
+            <th><input placeholder="Şehri Giriniz" type="text" /></th>
+            <th><input placeholder="Mesafeyi Giriniz" type="text" /></th>
+            <th style="width: 60px"><button style="margin-right: 7px;">Ekle</button><button type="reset">X</button></th>
+          </tr>
+
+          <tr>
+            <th>Id</th>
+            <th>Ülke</th>
+            <th>İsim</th>
+            <th>Uzaklık</th>
+            <th colspan="2" style="text-align: center;"><button type="submit">Ekle</button></th>
+          </tr>
+
+          <tr>
+            <td>103</td>
+            <td>Türkiye</td>
+            <td>Antalya</td>
+            <td>.....</td>
+            <td style="width: 140px">
+                <button type="submit" style="margin-right: 5px;">Güncelle</button>
+                <button type="submit">Sil</button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </form>
+  </body>
+</html>
