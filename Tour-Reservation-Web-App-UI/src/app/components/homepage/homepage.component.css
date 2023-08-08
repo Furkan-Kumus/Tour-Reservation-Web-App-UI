@@ -70,13 +70,12 @@ body {
 }
 
 /* dropdown */
-
 .wrapper #sidebar ul li ul.dropdown li {
   display: block;
 }
 
 .wrapper #sidebar ul li ul.dropdown{
-  width: 160px;
+  width: 145px;
   height: 100%;
   background: #4b4276;
   position: relative;
@@ -91,8 +90,8 @@ body {
 .wrapper #sidebar ul li:hover ul.dropdown{
   display: block;
 }
-
 /* dropdownend */
+
 .wrapper #sidebar ul li a .fas {
   width: 25px;
 }

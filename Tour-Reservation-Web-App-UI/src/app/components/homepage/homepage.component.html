@@ -18,14 +18,15 @@
       <li><a routerLink=""><i class="fa fa-home"></i> Anasayfa</a></li>
       <li *ngIf="authService.isAuthenticated"><a routerLink="admin"><i class="fa fa-user-secret"></i> Admin</a>
         <ul class="dropdown">
-          <li><a href="#" routerLink="country">Country</a></li>
-          <li><a href="#" routerLink="region">Region</a></li>
+          <li><a href="#" routerLink="country">Ülke</a></li>
+          <li><a href="#" routerLink="region">Bölge</a></li>
           <li><a href="#" routerLink="airport">Havaalanı</a></li>
-          <li><a href="#" routerLink="flights">Flights</a></li>
-          <li><a href="#" routerLink="car">Car</a></li>
-          <li><a href="#" routerLink="driver">Driver</a></li>
-          <li><a href="#" routerLink="user">User</a></li>
-        </ul></li>
+          <li><a href="#" routerLink="flights">Uçuşlar</a></li>
+          <li><a href="#" routerLink="car">Araba</a></li>
+          <li><a href="#" routerLink="driver">Şoför</a></li>
+          <li><a href="#" routerLink="user">Kullanıcı</a></li>
+        </ul> 
+      </li>
       <li *ngIf="!authService.isAuthenticated"><a routerLink="login"><i class="fa fa-user-circle"></i> Giriş Yap</a>
       </li>
       <li *ngIf="!authService.isAuthenticated"><a routerLink="register"><i class="fa fa-pencil"></i> Kayıt Ol</a></li>
