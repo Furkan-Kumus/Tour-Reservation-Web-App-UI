@@ -17,6 +17,7 @@ import { UserComponent } from './components/tourspecs/user/user.component';
 import { RegionComponent } from './components/tourspecs/region/region.component';
 import { CarComponent } from './components/tourspecs/car/car.component';
 import { CityComponent } from './components/tourspecs/city/city.component';
+import { HotelComponent } from './components/tourspecs/hotel/hotel.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path :'user',component : UserComponent,canActivate: [AuthGuard] },
   {path :'driver',component : DriverComponent,canActivate: [AuthGuard] },
   {path :'city',component : CityComponent,canActivate: [AuthGuard] },
+  {path :'hotel',component : HotelComponent,canActivate: [AuthGuard] },
 ];
 
 @NgModule({

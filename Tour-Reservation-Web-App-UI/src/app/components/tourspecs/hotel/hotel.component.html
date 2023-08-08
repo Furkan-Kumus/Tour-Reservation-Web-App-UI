@@ -1,0 +1,84 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let hotel">{{ hotel.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="HotelCode">
+        <th mat-header-cell *matHeaderCellDef>Hotel Kodu</th>
+        <td mat-cell *matCellDef="let hotel">{{ hotel.hotelCode }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="HotelRegion">
+        <th mat-header-cell *matHeaderCellDef>Hotel Bölgesi</th>
+        <td mat-cell *matCellDef="let hotel">{{ hotel.hotelRegion }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center">
+          <button (click)="opentab()">Hotel Ekle</button>
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let hotel"
+          style="text-align: center"><img src="../../../../assets/edit-file.png" style="width: 30px;"></td>
+      </ng-container>
+      
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center">
+          Sil
+        </th>
+        <td [id]="hotel.id" mat-cell *matCellDef="let hotel" appDelete (callback)="getHotel()"></td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <mat-paginator
+      (page)="pageChanged()"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+  
+  <form [formGroup]="frmHotel" (ngSubmit)="addHotel(frmHotel.value)">
+    <div class="table_design">
+      <table class="arabatablo">
+        <tr *ngIf="isSubmitted">
+          <th>
+            <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
+          </th>
+  
+          <th>
+            <input
+              placeholder="Hotel Kodunu Giriniz"
+              type="text"
+              id="Hotel"
+              formControlName="Hotel"
+            />
+          </th>
+  
+          <th>
+            <input
+              placeholder="Hotel Bölgesini Giriniz"
+              type="text"
+              id="HotelRegion"
+              formControlName="HotelRegion"
+            />
+          </th>
+  
+          <th style="width: 60px; text-align: center">
+            <button type="submit" style="margin-right: 7px">Ekle</button
+            ><button (click)="closeTab()" onClick="window.location.reload();">
+              X
+            </button>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </form>
+  
