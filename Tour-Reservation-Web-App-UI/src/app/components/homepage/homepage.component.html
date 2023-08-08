@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <!-- class=" navbar navbar-expand-lg  fixed-top py-lg-0 " -->
-<div class="wrapper + fixed-top py-lg-0" >
+<div class="wrapper + fixed-top py-lg-0">
   <div id="sidebar">
 
     <div class="toggle-btn" (click)="show()">
@@ -12,21 +12,20 @@
 
     <h2 class="navbar-brand me-2" href="http://kod.com.tr/">
       <img src="http://kod.com.tr/Images/logo.png" height="36" alt="" loading="lazy" style="margin-top: -1px;" />
-      
+
     </h2>
     <ul>
       <li><a routerLink=""><i class="fa fa-home"></i> Anasayfa</a></li>
-      
-      <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-        <li><a href="#"routerLink="country">Country</a></li>
-        <li><a href="#" routerLink="region">Region</a></li>
-        <li><a href="#" routerLink="airport">Havaalanı</a></li>
-        <li><a href="#" routerLink="flights">Flights</a></li>
-        <li><a href="#" routerLink="car">Car</a></li>
-        <li><a href="#" routerLink="driver">Driver</a></li>
-        <li><a href="#" routerLink="user">User</a></li>
-      </ul>
-      <li *ngIf="authService.isAuthenticated"><a routerLink="admin"><i class="fa fa-user-secret"></i> Admin</a></li>
+      <li *ngIf="authService.isAuthenticated"><a routerLink="admin"><i class="fa fa-user-secret"></i> Admin</a>
+        <ul class="dropdown">
+          <li><a href="#" routerLink="country">Country</a></li>
+          <li><a href="#" routerLink="region">Region</a></li>
+          <li><a href="#" routerLink="airport">Havaalanı</a></li>
+          <li><a href="#" routerLink="flights">Flights</a></li>
+          <li><a href="#" routerLink="car">Car</a></li>
+          <li><a href="#" routerLink="driver">Driver</a></li>
+          <li><a href="#" routerLink="user">User</a></li>
+        </ul></li>
       <li *ngIf="!authService.isAuthenticated"><a routerLink="login"><i class="fa fa-user-circle"></i> Giriş Yap</a>
       </li>
       <li *ngIf="!authService.isAuthenticated"><a routerLink="register"><i class="fa fa-pencil"></i> Kayıt Ol</a></li>
