@@ -18,22 +18,35 @@ export class FlightsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private flightService: FlightService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {}
 
   displayedColumns: string[] = ['Id', 'FlightCode', 'FlightRegion', 'update', 'delete'];
   dataSource: MatTableDataSource<List_Flight> = null;
+  categories: flight[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
   frmFlight: FormGroup;
 
   async getFlights() {
     const allFlights: { totalCount: number; flights: List_Flight[] } = await this.flightService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+    const allFlis: {flights: List_Flight[]} = await this.flightService.read()
+    
     this.dataSource = new MatTableDataSource<List_Flight>(allFlights.flights);
     console.log(this.dataSource);
-    
     this.paginator.length = allFlights.totalCount;
+    
+    this.flightService.read()
+
+
+    this.categories = allFlis.flights
   }
+
+  async getAllFlightRegion(){
+
+    
+  }
+  
 
   async ngOnInit(){
     this.frmFlight = this.formBuilder.group({
