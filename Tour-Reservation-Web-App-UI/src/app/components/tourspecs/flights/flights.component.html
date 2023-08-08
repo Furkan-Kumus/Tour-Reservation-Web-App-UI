@@ -1,31 +1,35 @@
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
-    <!-- Position Column -->
     <ng-container matColumnDef="Id">
       <th mat-header-cell *matHeaderCellDef>Id</th>
       <td mat-cell *matCellDef="let flights">{{ flights.id }}</td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="FlightCode">
       <th mat-header-cell *matHeaderCellDef>Uçuş Kodu</th>
       <td mat-cell *matCellDef="let flights">{{ flights.flightCode }}</td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="FlightRegion">
       <th mat-header-cell *matHeaderCellDef>Uçuş Bölgesi</th>
       <td mat-cell *matCellDef="let flights">{{ flights.flightRegion }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="updel">
-      <th mat-header-cell *matHeaderCellDef>
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
         <button (click)="opentab()">Uçuş Ekle</button>
       </th>
-      <td mat-cell *matCellDef="let flights">
-        <button style="margin-right: 5px;">Güncelle</button>
-        <button>Sil</button>
-      </td>
+      <td
+        mat-cell
+        *matCellDef="let flights"
+        style="text-align: center"><img src="../../../../assets/edit-file.png" style="width: 30px;"></td>
+    </ng-container>
+    
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        Sil
+      </th>
+      <td [id]="flights.id" mat-cell *matCellDef="let flights" appDelete (callback)="getFlights()"></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -40,9 +44,6 @@
   >
   </mat-paginator>
 </div>
-
-
-
 
 <form [formGroup]="frmFlight" (ngSubmit)="addFlight(frmFlight.value)">
   <div class="table_design">
@@ -72,26 +73,11 @@
 
         <th style="width: 60px; text-align: center">
           <button type="submit" style="margin-right: 7px">Ekle</button
-          ><button (click)="closeTab()"  onClick="window.location.reload();">X</button>
+          ><button (click)="closeTab()" onClick="window.location.reload();">
+            X
+          </button>
         </th>
       </tr>
-      <!-- 
-          <tr>
-            <th>Id</th>
-            <th>Kod</th>
-            <th>Bölge</th>
-            <th style="text-align: center;"><button (click)="opentab()">Uçuş Ekle</button></th>
-          </tr>
-
-          <tr>
-            <td>101</td>
-            <td>PGS</td>
-            <td>Antalya</td>
-            <td style="width: 140px">
-                <button style="margin-right: 5px;">Güncelle</button>
-                <button >Sil</button>
-            </td>
-          </tr> -->
     </table>
   </div>
 </form>

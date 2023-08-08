@@ -21,7 +21,7 @@ export class FlightsComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-  displayedColumns: string[] = ['Id', 'FlightCode', 'FlightRegion', 'updel'];
+  displayedColumns: string[] = ['Id', 'FlightCode', 'FlightRegion', 'update', 'delete'];
   dataSource: MatTableDataSource<List_Flight> = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
@@ -72,6 +72,5 @@ export class FlightsComponent implements OnInit {
   async pageChanged() {
     await this.getFlights();
   }
-
 
 }

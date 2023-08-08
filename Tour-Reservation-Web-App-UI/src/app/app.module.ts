@@ -25,7 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { DeleteDirective } from './directives/admin/delete.directive';
 
 @NgModule({
   declarations: [
@@ -45,6 +45,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CarComponent,
     DriverComponent,
     UserComponent,
+    DeleteDirective
   ],
   imports: [
     BrowserModule,

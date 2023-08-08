@@ -33,4 +33,12 @@ export class FlightService {
 
     return await promiseData;
   }
+
+  async delete(id: string) {
+    const deleteObservable: Observable<any> = this.httpClientService.delete<any>({
+      controller: "tourElements/Delete/Flight"
+    }, id);
+
+    await firstValueFrom(deleteObservable);
+  }
 }
