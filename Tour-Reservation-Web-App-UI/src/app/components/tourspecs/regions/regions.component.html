@@ -1,0 +1,99 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let region">{{ region.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="RegionCode">
+        <th mat-header-cell *matHeaderCellDef>Bölge Kodu</th>
+        <td mat-cell *matCellDef="let region">{{ region.regionCode }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="RegionName">
+        <th mat-header-cell *matHeaderCellDef>Bölge İsmi</th>
+        <td mat-cell *matCellDef="let region">{{ region.regionName }}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="RegionDistance">
+        <th mat-header-cell *matHeaderCellDef>Bölge Uzaklığı</th>
+        <td mat-cell *matCellDef="let region">{{ region.regionDistance }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center">
+          <button (click)="opentab()">Bölge Ekle</button>
+        </th>
+        <td
+          mat-cell
+          *matCellDef="let region"
+          style="text-align: center"><img src="../../../../assets/edit-file.png" style="width: 30px;"></td>
+      </ng-container>
+      
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center">
+          Sil
+        </th>
+        <td [id]="region.id" mat-cell *matCellDef="let region" appDelete (callback)="getRegion()"></td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <mat-paginator
+      (page)="pageChanged()"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+  
+  <form [formGroup]="frmRegion" (ngSubmit)="addRegion(frmRegion.value)">
+    <div class="table_design">
+      <table class="arabatablo">
+        <tr *ngIf="isSubmitted">
+          <th>
+            <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
+          </th>
+  
+          <th>
+            <input
+              placeholder="Bölge Kodunu Giriniz"
+              type="text"
+              id="RegionCode"
+              formControlName="RegionCode"
+            />
+          </th>
+  
+          <th>
+            <input
+              placeholder="Bölge İsmini Giriniz"
+              type="text"
+              id="RegionName"
+              formControlName="RegionName"
+            />
+          </th>
+  
+          <th>
+            <input
+              placeholder="Bölge Ülkesini Giriniz"
+              type="text"
+              id="RegionDistance"
+              formControlName="RegionDistance"
+            />
+          </th>
+          
+  
+          <th style="width: 60px; text-align: center">
+            <button type="submit" style="margin-right: 7px">Ekle</button
+            ><button (click)="closeTab()" onClick="window.location.reload();">
+              X
+            </button>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </form>
+  

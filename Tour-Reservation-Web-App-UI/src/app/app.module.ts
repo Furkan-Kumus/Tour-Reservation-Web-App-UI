@@ -16,7 +16,6 @@ import { AdminModule } from './admin/admin.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { FlightsComponent } from './components/tourspecs/flights/flights.component';
 import { CountryComponent } from './components/tourspecs/country/country.component';
-import { RegionComponent } from './components/tourspecs/region/region.component';
 import { AirportComponent } from './components/tourspecs/airport/airport.component';
 import { CarComponent } from './components/tourspecs/car/car.component';
 import { DriverComponent } from './components/tourspecs/driver/driver.component';
@@ -28,6 +27,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { DeleteDirective } from './directives/admin/delete.directive';
 import { CityComponent } from './components/tourspecs/city/city.component';
 import { HotelComponent } from './components/tourspecs/hotel/hotel.component';
+import { RegionsComponent } from './components/tourspecs/regions/regions.component';
 
 @NgModule({
   declarations: [
@@ -42,14 +42,14 @@ import { HotelComponent } from './components/tourspecs/hotel/hotel.component';
     AdminpageComponent,
     FlightsComponent,
     CountryComponent,
-    RegionComponent,
     AirportComponent,
     CarComponent,
     DriverComponent,
     UserComponent,
     DeleteDirective,
     CityComponent,
-    HotelComponent
+    HotelComponent,
+    RegionsComponent
   ],
   imports: [
     BrowserModule,

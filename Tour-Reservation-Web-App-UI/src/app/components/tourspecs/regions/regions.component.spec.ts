@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RegionComponent } from './region.component';
+import { RegionsComponent } from './regions.component';
 
-describe('RegionComponent', () => {
-  let component: RegionComponent;
-  let fixture: ComponentFixture<RegionComponent>;
+describe('RegionsComponent', () => {
+  let component: RegionsComponent;
+  let fixture: ComponentFixture<RegionsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RegionComponent]
+      declarations: [RegionsComponent]
     });
-    fixture = TestBed.createComponent(RegionComponent);
+    fixture = TestBed.createComponent(RegionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

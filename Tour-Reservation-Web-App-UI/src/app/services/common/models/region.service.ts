@@ -24,8 +24,8 @@ export class RegionService {
 
     return await firstValueFrom(observable) as Create_Region;
   }
-  async read(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; region: List_Region[] }> {
-    const promiseData: Promise<{ totalCount: number; region: List_Region[] }> = this.httpClientService.get<{ totalCount: number; region: List_Region[] }>({
+  async read(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; regions: List_Region[] }> {
+    const promiseData: Promise<{ totalCount: number; regions: List_Region[] }> = this.httpClientService.get<{ totalCount: number; regions: List_Region[] }>({
       controller: "tourElements/Get/Region",
       queryString: `page=${page}&size=${size}`
     }).toPromise();

@@ -2,23 +2,21 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource,  } from '@angular/material/table';
+import { MatTableDataSource} from '@angular/material/table';
   
 import { ToastrService } from 'ngx-toastr';
 import { List_Region } from 'src/app/contracts/tour_elements/list_region';
 import { Create_Region } from 'src/app/contracts/users/create_region';
 import { region } from 'src/app/entities/region';
-import { RegionService } from 'src/app/services/common/models/region.service';
-type NewType = region;
-  
+import { RegionService } from 'src/app/services/common/models/region.service';  
 
 
 @Component({
-  selector: 'app-region',
-  templateUrl: './region.component.html',
-  styleUrls: ['./region.component.css']
+  selector: 'app-regions',
+  templateUrl: './regions.component.html',
+  styleUrls: ['./regions.component.css']
 })
-export class RegionComponent  implements OnInit {
+export class RegionsComponent  implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private regionService: RegionService,
@@ -32,18 +30,18 @@ export class RegionComponent  implements OnInit {
   frmRegion: FormGroup;
 
   async getRegion() {
-    const allRegion: { totalCount: number; region: List_Region[] } = await this.regionService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
-    this.dataSource = new MatTableDataSource<List_Region>(allRegion.region);
+    const allRegions: { totalCount: number; regions: List_Region[] } = await this.regionService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+    this.dataSource = new MatTableDataSource<List_Region>(allRegions.regions);
     console.log(this.dataSource);
-    
-    this.paginator.length = allRegion.totalCount;
+    debugger
+    this.paginator.length = allRegions.totalCount;
   }
 
   async ngOnInit(){
     this.frmRegion = this.formBuilder.group({
       RegionCode: ['', [Validators.required]],
       RegionName: ['', [Validators.required]],
-      RegionDistance: ['', [Validators.required]],
+      RegionDistance: [0, [Validators.required]],
     });
 
     await this.getRegion();
