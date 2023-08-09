@@ -9,9 +9,6 @@ import { Create_City } from 'src/app/contracts/users/create_city';
 import { city } from 'src/app/entities/city';
 import { CityService } from 'src/app/services/common/models/city.service';
 
-  
-type NewType = city;
-
 @Component({
   selector: 'app-city',
   templateUrl: './city.component.html',
@@ -43,7 +40,7 @@ type NewType = city;
       this.frmCity = this.formBuilder.group({
         CityCountry: ['', [Validators.required]],
         CityName: ['', [Validators.required]],
-        CityDistance: ['', [Validators.required]],
+        CityDistance: [0, [Validators.required]],
       });
   
       await this.getCity();
