@@ -1,98 +1,46 @@
-<div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource">
-    <ng-container matColumnDef="Id">
-      <th mat-header-cell *matHeaderCellDef>Id</th>
-      <td mat-cell *matCellDef="let city">{{ city.id }}</td>
-    </ng-container>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <form (ngSubmit)="addCity()" (reset)="closeTab()">
+      <div class="table_design">
+        <table class="arabatablo">
 
-    <ng-container matColumnDef="CityCountry">
-      <th mat-header-cell *matHeaderCellDef>Ülke</th>
-      <td mat-cell *matCellDef="let city">{{ city.cityCountry }}</td>
-    </ng-container>
+          <tr *ngIf="isSubmitted">
+            <th><input placeholder="Id Giriniz" type="text" /></th>
+            <th><input placeholder="Ülke İsmini   Giriniz" type="text" /></th>
+            <th><input placeholder="Şehri Giriniz" type="text" /></th>
+            <th><input placeholder="Mesafeyi Giriniz" type="text" /></th>
+            <th style="width: 60px"><button style="margin-right: 7px;">Ekle</button><button type="reset">X</button></th>
+          </tr>
 
-    <ng-container matColumnDef="CityName">
-      <th mat-header-cell *matHeaderCellDef>Şehir İsmi</th>
-      <td mat-cell *matCellDef="let city">{{ city.cityName }}</td>
-    </ng-container>
-    
-    <ng-container matColumnDef="CityDistance">
-      <th mat-header-cell *matHeaderCellDef>Şehir Uzaklığı</th>
-      <td mat-cell *matCellDef="let city">{{ city.cityDistance }}</td>
-    </ng-container>
+          <tr>
+            <th>Id</th>
+            <th>Ülke</th>
+            <th>İsim</th>
+            <th>Uzaklık</th>
+            <th colspan="2" style="text-align: center;"><button type="submit">Ekle</button></th>
+          </tr>
 
-    <ng-container matColumnDef="update">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center">
-        <button (click)="opentab()">Şehir Ekle</button>
-      </th>
-      <td
-        mat-cell
-        *matCellDef="let city"
-        style="text-align: center"><img src="../../../../assets/edit-file.png" style="width: 30px;"></td>
-    </ng-container>
-    
-    <ng-container matColumnDef="delete">
-      <th mat-header-cell *matHeaderCellDef style="text-align: center">
-        Sil
-      </th>
-      <td [id]="city.id" mat-cell *matCellDef="let city" appDelete (callback)="getCity()"></td>
-    </ng-container>
+          <tr>
+            <td>103</td>
+            <td>Türkiye</td>
+            <td>Antalya</td>
+            <td>.....</td>
+            <td style="width: 140px">
+                <button type="submit" style="margin-right: 5px;">Güncelle</button>
+                <button type="submit">Sil</button>
+            </td>
+          </tr>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-
-  <mat-paginator
-    (page)="pageChanged()"
-    [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of periodic elements"
-  >
-  </mat-paginator>
-</div>
-
-<form [formGroup]="frmCity" (ngSubmit)="addCity(frmCity.value)">
-  <div class="table_design">
-    <table class="arabatablo">
-      <tr *ngIf="isSubmitted">
-        <th>
-          <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
-        </th>
-
-        <th>
-          <input
-            placeholder="Ülke Giriniz"
-            type="text"
-            id="CityCountry"
-            formControlName="CityCountry"
-          />
-        </th>
-
-        <th>
-          <input
-            placeholder="Şehir İsmini Giriniz"
-            type="text"
-            id="CityName"
-            formControlName="CityName"
-          />
-        </th>
-
-        <th>
-          <input
-            placeholder="Şehir Uzaklığını Giriniz"
-            type="text"
-            id="CityDistance"
-            formControlName="CityDistance"
-          />
-        </th>
-        
-
-        <th style="width: 60px; text-align: center">
-          <button type="submit" style="margin-right: 7px">Ekle</button
-          ><button (click)="closeTab()" onClick="window.location.reload();">
-            X
-          </button>
-        </th>
-      </tr>
-    </table>
-  </div>
-</form>
+        </table>
+      </div>
+    </form>
+  </body>
+</html>
