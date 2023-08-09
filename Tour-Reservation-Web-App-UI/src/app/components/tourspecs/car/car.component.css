@@ -1,3 +1,10 @@
+.mat-elevation-z8{
+    /*scale: 0.9;*/
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
+
 .table_design{
     width: 80%;
     padding-top: 5%;
@@ -15,12 +22,12 @@
 }
 .table_design .arabatablo th {
     text-align: left;
-    background-color:#d93c3c;
+    background-color:#786b98;
     color:white;
 }
 .table_design .arabatablo tr:hover{
-    background-color: #edc6ff;
+    background-color: #a297e1;
 }
 .table_design .arabatablo tr:nth-child(even){
-    background-color:rgb(245, 137, 162);
+    background-color:rgb(219, 209, 234);
 }

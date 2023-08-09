@@ -1,53 +1,90 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <form (ngSubmit)="addCar()" (reset)="closeTab()">
-      <div class="table_design">
-        <table class="arabatablo">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let vehicles">{{ vehicles.id }}</td>
+    </ng-container>
 
-          <tr *ngIf="isSubmitted">
-            <th><input placeholder="Id Giriniz" type="text" /></th>
-            <th><input placeholder="Araba Kodunu Giriniz" type="text" /></th>
-            <th><input placeholder="Araba plakasını Giriniz" type="text" /></th>
-            <th><input placeholder="Araba sürücüsünü Giriniz" type="text" /></th>
-            <th><input placeholder="Araba tipi Giriniz" type="text" /></th>
-            <th><input placeholder="Araba kişi sayısını Giriniz" type="text" /></th>
-            <th style="width: 60px"><button style="margin-right: 7px;">Ekle</button><button type="reset">X</button></th>
-          </tr>
+    <ng-container matColumnDef="VehicleCode">
+      <th mat-header-cell *matHeaderCellDef>Nereden</th>
+      <td mat-cell *matCellDef="let vehicles">{{ vehicles.vehicleCode }}</td>
+    </ng-container>
 
-          <tr>
-            <th>Id</th>
-            <th>Kod</th>
-            <th>Plaka</th>
-            <th>Sürücü</th>
-            <th>Tip</th>
-            <th>Kisi sayısı</th>
-            <th colspan="2" style="text-align: center;"><button type="submit">Ekle</button></th>
-          </tr>
+    <ng-container matColumnDef="VehicleRegion">
+      <th mat-header-cell *matHeaderCellDef>Nereye</th>
+      <td mat-cell *matCellDef="let vehicles">{{ vehicles.vehicleRegion }}</td>
+    </ng-container>
 
-          <tr>
-            <td>111</td>
-            <td>TR090</td>
-            <td>07ABC07</td>
-            <td>Mehmet</td>
-            <td>Sedan</td>
-            <td>5</td>
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        <button (click)="opentab()">Uçuş Ekle</button>
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let vehicles"
+        style="text-align: center"><img src="../../../../assets/edit-file.png" style="width: 30px;"></td>
+    </ng-container>
+    
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        Sil
+      </th>
+      <td [id]="vehicles.id" mat-cell *matCellDef="let vehicles" appDelete (callback)="getVehicles()"></td>
+    </ng-container>
 
-            <td style="width: 140px">
-                <button type="submit" style="margin-right: 5px;">Güncelle</button>
-                <button type="submit">Sil</button>
-            </td>
-          </tr>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 
-        </table>
-      </div>
-    </form>
-  </body>
-</html>
+  <mat-paginator
+    (page)="pageChanged()"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+
+<form [formGroup]="frmVehicle" (ngSubmit)="addVehicle(frmVehicle.value)">
+  <div class="table_design">
+    <table class="arabatablo" >
+      <tr *ngIf="isSubmitted">
+        <th>
+          <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
+        </th>
+
+       
+        <th style="margin: auto;"><h3 style="margin-left: 19%;">Nereden</h3>
+          <select  class="form-control" formControlName="VehicleCode" name="VehicleCode" id="VehicleCode" required style="scale: 0.75; width: 150px;">
+            <option *ngFor="let category of Airport_List" [value]="category.airportCode">
+             {{category.airportCode}} | {{category.airportName}}
+            </option>
+          </select>
+        </th>
+
+        <th style="margin: auto;"><h3 style="margin-left: 19%;">Nereye</h3>
+          <select  class="form-control" formControlName="VehicleRegion" name="VehicleRegion" id="VehicleRegion" required style="scale: 0.75; width: 150px;">
+            <option *ngFor="let category of Airport_List" [value]="category.airportCode">
+             {{category.airportCode}} | {{category.airportName}}
+            </option>
+          </select>
+        </th>
+
+
+        
+
+
+
+
+        
+
+        <th style="width: 60px; text-align: center">
+          <button type="submit" style="margin-right: 7px">Ekle</button
+          ><button (click)="closeTab()" onClick="window.location.reload();">
+            X
+          </button>
+        </th>
+      </tr>
+    </table>
+  </div>
+</form>
