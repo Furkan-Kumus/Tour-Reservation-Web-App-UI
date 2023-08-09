@@ -21,8 +21,8 @@ export class CityService {
     return await firstValueFrom(observable) as Create_City;
   }
 
-  async read(page: number = 0, size: number = 50, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; cities: List_City[] }> {
-    const promiseData: Promise<{ totalCount: number; cities: List_City[] }> = this.httpClientService.get<{ totalCount: number; cities: List_City[] }>({
+  async read(page: number = 0, size: number = 50, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; citys: List_City[] }> {
+    const promiseData: Promise<{ totalCount: number; citys: List_City[] }> = this.httpClientService.get<{ totalCount: number; citys: List_City[] }>({
       controller: "tourElements/Get/City",
       queryString: `page=${page}&size=${size}`
     }).toPromise();

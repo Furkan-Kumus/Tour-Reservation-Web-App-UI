@@ -29,10 +29,9 @@ import { CityService } from 'src/app/services/common/models/city.service';
     frmCity: FormGroup;
   
     async getCity() {
-      const allCity: { totalCount: number; cities: List_City[] } = await this.cityService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
-      this.dataSource = new MatTableDataSource<List_City>(allCity.cities);
+      const allCity: { totalCount: number; citys: List_City[] } = await this.cityService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+      this.dataSource = new MatTableDataSource<List_City>(allCity.citys);
       console.log(this.dataSource);
-      
       this.paginator.length = allCity.totalCount;
     }
   

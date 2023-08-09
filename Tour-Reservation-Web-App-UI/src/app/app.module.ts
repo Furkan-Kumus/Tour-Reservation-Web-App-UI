@@ -32,6 +32,8 @@ import { DeletehotelDirective } from './directives/admin/deletehotel.directive';
 import { DeleteregionDirective } from './directives/admin/deleteregion.directive';
 import { DeletedriverDirective } from './directives/admin/deletedriver.directive';
 import { VehicleComponent } from './components/tourspecs/vehicle/vehicle.component';
+import { DeletecityDirective } from './directives/admin/deletecity.directive';
+import { DeletevehicleDirective } from './directives/deletevehicle.directive';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { VehicleComponent } from './components/tourspecs/vehicle/vehicle.compone
     DeletehotelDirective,
     DeleteregionDirective,
     DeletedriverDirective,
-    VehicleComponent
+    VehicleComponent,
+    DeletecityDirective,
+    DeletevehicleDirective,
   ],
   imports: [
     BrowserModule,
