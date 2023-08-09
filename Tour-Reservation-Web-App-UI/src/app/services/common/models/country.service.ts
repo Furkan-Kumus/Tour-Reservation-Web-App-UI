@@ -21,8 +21,8 @@ export class CountryService {
     return await firstValueFrom(observable) as Create_Country;
   }
 
-  async read(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; countries: List_Country[] }> {
-    const promiseData: Promise<{ totalCount: number; countries: List_Country[] }> = this.httpClientService.get<{ totalCount: number; countries: List_Country[] }>({
+  async read(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; countrys: List_Country[] }> {
+    const promiseData: Promise<{ totalCount: number; countrys: List_Country[] }> = this.httpClientService.get<{ totalCount: number; countrys: List_Country[] }>({
       controller: "tourElements/Get/Country",
       queryString: `page=${page}&size=${size}`
     }).toPromise();

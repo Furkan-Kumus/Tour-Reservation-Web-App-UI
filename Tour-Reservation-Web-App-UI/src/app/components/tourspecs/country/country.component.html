@@ -30,7 +30,7 @@
       <th mat-header-cell *matHeaderCellDef style="text-align: center">
         Sil
       </th>
-      <td [id]="country.id" mat-cell *matCellDef="let country" appDelete (callback)="getCountry()"></td>
+      <td [id]="country.id" mat-cell *matCellDef="let country" appDeletecountry (callback)="getCountry()"></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -56,7 +56,7 @@
 
         <th>
           <input
-            placeholder="Ülke Kodunu Giriniz"
+            placeholder="Havaalanı Kodunu Giriniz"
             type="text"
             id="CountryCode"
             formControlName="CountryCode"
@@ -65,13 +65,22 @@
 
         <th>
           <input
-            placeholder="Ülke İsmini Giriniz"
+            placeholder="Havaalanı İsmini Giriniz"
             type="text"
             id="CountryName"
             formControlName="CountryName"
           />
         </th>
 
+        <th>
+          <input
+            placeholder="Havaalanı Ülkesini Giriniz"
+            type="text"
+            id="CountryCountry"
+            formControlName="CountryCountry"
+          />
+        </th>
+        
 
         <th style="width: 60px; text-align: center">
           <button type="submit" style="margin-right: 7px">Ekle</button
