@@ -21,8 +21,8 @@ export class AirportService {
     return await firstValueFrom(observable) as Create_Airport;
   }
 
-  async read(page: number = 0, size: number = 5, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; airport: List_Airport[] }> {
-    const promiseData: Promise<{ totalCount: number; airport: List_Airport[] }> = this.httpClientService.get<{ totalCount: number; airport: List_Airport[] }>({
+  async read(page: number = 0, size: number = 50, successCallBack?: () => void, errorCallBack?: (errorMessage: string) => void): Promise<{ totalCount: number; airports: List_Airport[] }> {
+    const promiseData: Promise<{ totalCount: number; airports: List_Airport[] }> = this.httpClientService.get<{ totalCount: number; airports: List_Airport[] }>({
       controller: "tourElements/Get/Airport",
       queryString: `page=${page}&size=${size}`
     }).toPromise();

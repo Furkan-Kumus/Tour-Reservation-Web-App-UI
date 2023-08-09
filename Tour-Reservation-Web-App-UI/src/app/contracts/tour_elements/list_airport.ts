@@ -1,6 +1,6 @@
 export interface List_Airport{
     Id:string;
-    AirportCode:string;
-    AirportName:string;
-    AirportCountry:string;
+    airportCode:string;
+    airportName:string;
+    airportCountry:string;
 }

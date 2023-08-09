@@ -32,8 +32,8 @@ type NewType = airport;
     frmAirport: FormGroup;
   
     async getAirport() {
-      const allAirport: { totalCount: number; airport: List_Airport[] } = await this.airportService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
-      this.dataSource = new MatTableDataSource<List_Airport>(allAirport.airport);
+      const allAirport: { totalCount: number; airports: List_Airport[] } = await this.airportService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+      this.dataSource = new MatTableDataSource<List_Airport>(allAirport.airports);
       console.log(this.dataSource);
       
       this.paginator.length = allAirport.totalCount;

@@ -1,12 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource,  } from '@angular/material/table';
+import { data } from 'jquery';
 
 import { ToastrService } from 'ngx-toastr';
+import { List_Airport } from 'src/app/contracts/tour_elements/list_airport';
 import { List_Flight } from 'src/app/contracts/tour_elements/list_flight';
 import { Create_Flight } from 'src/app/contracts/users/create_flight';
 import { flight } from 'src/app/entities/flight';
+import { AirportService } from 'src/app/services/common/models/airport.service';
 import { FlightService } from 'src/app/services/common/models/flight.service';
 
 @Component({
@@ -18,34 +21,37 @@ export class FlightsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private flightService: FlightService,
+    private airportService: AirportService,
     private toastr: ToastrService,
   ) {}
 
   displayedColumns: string[] = ['Id', 'FlightCode', 'FlightRegion', 'update', 'delete'];
   dataSource: MatTableDataSource<List_Flight> = null;
-  categories: List_Flight[];
+  Flight_List: List_Flight[];
+  Airport_List: List_Airport[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   
   frmFlight: FormGroup;
 
   async getFlights() {
     const allFlights: { totalCount: number; flights: List_Flight[] } = await this.flightService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
-    this.dataSource = new MatTableDataSource<List_Flight>(allFlights.flights);
-    
     const allFlis: {flights: List_Flight[]} = await this.flightService.read()
+    
+    this.dataSource = new MatTableDataSource<List_Flight>(allFlights.flights);
     console.log(this.dataSource);
-    debugger
     this.paginator.length = allFlights.totalCount;
     
-    this.flightService.read()
+    this.Flight_List = allFlis.flights;
 
-    this.categories = allFlis.flights
   }
-
-  async getAllFlightRegion(){
-
+  async getAirports(){
+    const allAirports: { totalCount: number; airports: List_Airport[] } = await this.airportService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+    const allAir: {airports: List_Airport[]} = await this.airportService.read()
     
+    this.Airport_List = allAir.airports;
   }
+    
+  
   
 
   async ngOnInit(){
@@ -53,8 +59,8 @@ export class FlightsComponent implements OnInit {
       FlightCode: ['', [Validators.required]],
       FlightRegion: ['', [Validators.required]],
     });
-
     await this.getFlights();
+    await this.getAirports();
   }
 
   get component() {
