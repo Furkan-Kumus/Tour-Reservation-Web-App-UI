@@ -34,7 +34,7 @@
         <th mat-header-cell *matHeaderCellDef style="text-align: center">
           Sil
         </th>
-        <td [id]="region.id" mat-cell *matCellDef="let region" appDelete (callback)="getRegion()"></td>
+        <td [id]="region.id" mat-cell *matCellDef="let region" appDeleteregion (callback)="getRegion()"></td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

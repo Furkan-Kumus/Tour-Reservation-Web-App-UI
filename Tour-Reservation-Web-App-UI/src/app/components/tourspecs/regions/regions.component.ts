@@ -33,7 +33,7 @@ export class RegionsComponent  implements OnInit {
     const allRegions: { totalCount: number; regions: List_Region[] } = await this.regionService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
     this.dataSource = new MatTableDataSource<List_Region>(allRegions.regions);
     console.log(this.dataSource);
-    debugger
+    
     this.paginator.length = allRegions.totalCount;
   }
 

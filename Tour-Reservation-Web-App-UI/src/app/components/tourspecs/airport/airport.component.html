@@ -1,3 +1,4 @@
+
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="Id">
@@ -34,7 +35,7 @@
       <th mat-header-cell *matHeaderCellDef style="text-align: center">
         Sil
       </th>
-      <td [id]="airport.id" mat-cell *matCellDef="let airport" appDelete (callback)="getAirport()"></td>
+      <td [id]="airport.id" mat-cell *matCellDef="let airport" appDeleteairport (callback)="getAirport()"></td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

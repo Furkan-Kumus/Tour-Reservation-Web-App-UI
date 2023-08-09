@@ -1,43 +1,85 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <form (ngSubmit)="addCountry()" (reset)="closeTab()">
-      <div class="table_design">
-        <table class="arabatablo">
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let country">{{ country.id }}</td>
+    </ng-container>
 
-          <tr *ngIf="isSubmitted">
-            <th><input placeholder="Id Giriniz" type="text" /></th>
-            <th><input placeholder="Ülke Kodunu Giriniz" type="text" /></th>
-            <th><input placeholder="Ülke İsmini Giriniz" type="text" /></th>
-            <th style="width: 60px"><button style="margin-right: 7px;">Ekle</button><button type="reset">X</button></th>
-          </tr>
+    <ng-container matColumnDef="CountryCode">
+      <th mat-header-cell *matHeaderCellDef>Ülke Kodu</th>
+      <td mat-cell *matCellDef="let country">{{ country.countryCode }}</td>
+    </ng-container>
 
-          <tr>
-            <th>Id</th>
-            <th>Kod</th>
-            <th>İsim</th>
-            <th colspan="2" style="text-align: center;"><button type="submit">Ekle</button></th>
-          </tr>
+    <ng-container matColumnDef="CountryName">
+      <th mat-header-cell *matHeaderCellDef>Ülke İsmi</th>
+      <td mat-cell *matCellDef="let country">{{ country.countryName }}</td>
+    </ng-container>
+  
 
-          <tr>
-            <td>103</td>
-            <td>TR</td>
-            <td>Türkiye</td>
-            <td style="width: 140px">
-                <button type="submit" style="margin-right: 5px;">Güncelle</button>
-                <button type="submit">Sil</button>
-            </td>
-          </tr>
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        <button (click)="opentab()">Ülke Ekle</button>
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let country"
+        style="text-align: center"><img src="../../../../assets/edit-file.png" style="width: 30px;"></td>
+    </ng-container>
+    
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        Sil
+      </th>
+      <td [id]="country.id" mat-cell *matCellDef="let country" appDelete (callback)="getCountry()"></td>
+    </ng-container>
 
-        </table>
-      </div>
-    </form>
-  </body>
-</html>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    (page)="pageChanged()"
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+
+<form [formGroup]="frmCountry" (ngSubmit)="addCountry(frmCountry.value)">
+  <div class="table_design">
+    <table class="arabatablo">
+      <tr *ngIf="isSubmitted">
+        <th>
+          <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
+        </th>
+
+        <th>
+          <input
+            placeholder="Ülke Kodunu Giriniz"
+            type="text"
+            id="CountryCode"
+            formControlName="CountryCode"
+          />
+        </th>
+
+        <th>
+          <input
+            placeholder="Ülke İsmini Giriniz"
+            type="text"
+            id="CountryName"
+            formControlName="CountryName"
+          />
+        </th>
+
+
+        <th style="width: 60px; text-align: center">
+          <button type="submit" style="margin-right: 7px">Ekle</button
+          ><button (click)="closeTab()" onClick="window.location.reload();">
+            X
+          </button>
+        </th>
+      </tr>
+    </table>
+  </div>
+</form>

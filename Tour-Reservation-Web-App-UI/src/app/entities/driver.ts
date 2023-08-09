@@ -1,6 +1,5 @@
 export class driver {
-    Id:string;
-    DriverName: string;
-    DriverSurname: string;
-  }
-  
+  Id:string;
+  driverName: string;
+  driverSurname: string;
+}

@@ -24,6 +24,7 @@ export class HomepageComponent {
   }
 
   show() {
+    console.log('sgh');
     document.getElementById('sidebar').classList.toggle('active');
   }
 }

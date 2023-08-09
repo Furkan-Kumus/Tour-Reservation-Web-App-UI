@@ -28,6 +28,10 @@ import { DeleteDirective } from './directives/admin/delete.directive';
 import { CityComponent } from './components/tourspecs/city/city.component';
 import { HotelComponent } from './components/tourspecs/hotel/hotel.component';
 import { RegionsComponent } from './components/tourspecs/regions/regions.component';
+import { DeleteairportDirective } from './directives/admin/deleteairport.directive';
+import { DeletehotelDirective } from './directives/admin/deletehotel.directive';
+import { DeleteregionDirective } from './directives/admin/deleteregion.directive';
+import { DeletedriverDirective } from './directives/admin/deletedriver.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { RegionsComponent } from './components/tourspecs/regions/regions.compone
     DeleteDirective,
     CityComponent,
     HotelComponent,
-    RegionsComponent
+    RegionsComponent,
+    DeleteairportDirective,
+    DeletehotelDirective,
+    DeleteregionDirective,
+    DeletedriverDirective
   ],
   imports: [
     BrowserModule,
