@@ -45,11 +45,6 @@
   </mat-paginator>
 </div>
 
-<select class="form-control" formControlName="////FlightRegion" name="//////FlightRegion" id="//////FlightRegion" required style="scale: 0.75; width: 300px;">
-  <option *ngFor="let category of Airport_List" [value]="category.airportCode">
-   {{category.airportCode}} | {{category.airportName}}
-  </option>
-</select> 
 <form [formGroup]="frmFlight" (ngSubmit)="addFlight(frmFlight.value)">
   <div class="table_design">
     <table class="arabatablo" >
