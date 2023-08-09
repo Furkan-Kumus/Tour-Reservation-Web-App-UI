@@ -63,23 +63,33 @@
         </th>
 
         <th>
-          <input placeholder="Araç Kodunu Giriniz" type="text" id="VehicleCode" formControlName="VehicleCode" />
+          <H5 style="margin-left: 25%;">Araç Kodu</H5>
+          <input placeholder="Araç Kodu | Ofis2,Fabrika1" type="text" id="VehicleCode" formControlName="VehicleCode" />
         </th>
 
         <th>
+          <H5 style="margin-left: 25%;">Plaka</H5>
           <input placeholder="Araç Lisans Plakasını Giriniz" type="text" id="VehicleLicensePlate"
             formControlName="VehicleLicensePlate" />
         </th>
 
         <th>
-          <input placeholder="Araç Şoförünü Giriniz" type="text" id="VehicleDriver" formControlName="VehicleDriver" />
+          <H5 style="margin-left: 25%;">Şoför</H5>
+
+          <select  class="form-control" formControlName="VehicleDriver"name="VehicleDriver" id="VehicleDriver " required style="scale: 0.75; width: 150px;">
+            <option *ngFor="let category of Driver_List" [value]="category.driverSurname">
+             {{category.driverName}} {{category.driverSurname}}
+            </option>
+          </select>
         </th>
 
         <th>
+          <H5 style="margin-left: 25%;">Araç Tipi</H5>
           <input placeholder="Araç Tipini Giriniz" type="text" id="VehicleType" formControlName="VehicleType" />
         </th>
 
         <th>
+          <H5 style="margin-left: 25%;">Kaç kişilik?</H5>
           <input placeholder="Araç Kaç Kişilik Giriniz" type="text" id="VehicleForPeople"
             formControlName="VehicleForPeople" />
         </th>

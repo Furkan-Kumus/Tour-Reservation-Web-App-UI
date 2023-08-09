@@ -4,9 +4,11 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 
 import { ToastrService } from 'ngx-toastr';
+import { List_Driver } from 'src/app/contracts/tour_elements/list_driver';
 import { List_Vehicle } from 'src/app/contracts/tour_elements/list_vehicle';
 import { Create_Vehicle } from 'src/app/contracts/users/create_vehicle';
 import { vehicle } from 'src/app/entities/vehicle';
+import { DriverService } from 'src/app/services/common/models/driver.service';
 import { VehicleService } from 'src/app/services/common/models/vehicle.service';
 
 @Component({
@@ -18,6 +20,7 @@ export class VehicleComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private vehicleService: VehicleService,
+    private driverService: DriverService,
     private toastr: ToastrService
   ) {}
 
@@ -49,6 +52,14 @@ export class VehicleComponent implements OnInit {
 
     this.paginator.length = allVehicles.totalCount;
   }
+  async getDriver(){
+    const allDrivers: { totalCount: number; drivers: List_Driver[] } = await this.driverService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+    const allAir: {drivers: List_Driver[]} = await this.driverService.read()
+    
+    this.Driver_List = allAir.drivers;
+  }
+Driver_List: List_Driver[];
+
 
   async ngOnInit() {
     this.frmVehicle = this.formBuilder.group({
@@ -60,6 +71,7 @@ export class VehicleComponent implements OnInit {
     });
 
     await this.getVehicles();
+    await this.getDriver();
   }
 
   get component() {
@@ -72,7 +84,6 @@ export class VehicleComponent implements OnInit {
     if (this.frmVehicle.invalid) {
       return;
     }
-
     this.toastr.success(
       "Kayıt Başarıyla Database'e Kaydedilmiştir.",
       'Araba Kaydı Başarılı!'

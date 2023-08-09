@@ -5,9 +5,11 @@ import { MatTableDataSource,  } from '@angular/material/table';
   
 import { ToastrService } from 'ngx-toastr';
 import { List_Airport } from 'src/app/contracts/tour_elements/list_airport';
+import { List_Country } from 'src/app/contracts/tour_elements/list_country';
 import { Create_Airport } from 'src/app/contracts/users/create_airport';
 import { airport } from 'src/app/entities/airport';
 import { AirportService } from 'src/app/services/common/models/airport.service';
+import { CountryService } from 'src/app/services/common/models/country.service';
 
   
 type NewType = airport;
@@ -22,6 +24,7 @@ type NewType = airport;
     constructor(
       private formBuilder: FormBuilder,
       private airportService: AirportService,
+      private countryService: CountryService,
       private toastr: ToastrService
     ) {}
   
@@ -37,7 +40,13 @@ type NewType = airport;
       console.log(this.dataSource);
       this.paginator.length = allAirport.totalCount;
     }
-  
+    async getCountrys(){
+      const allCountrys: { totalCount: number; countrys: List_Country[] } = await this.countryService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+      const allAir: {countrys: List_Country[]} = await this.countryService.read()
+      
+      this.Country_List = allAir.countrys;
+    }
+    Country_List: List_Country[];
     async ngOnInit(){
       this.frmAirport = this.formBuilder.group({
         AirportCode: ['', [Validators.required]],
@@ -46,6 +55,7 @@ type NewType = airport;
       });
   
       await this.getAirport();
+      await this.getCountrys();
     }
   
     get component() {

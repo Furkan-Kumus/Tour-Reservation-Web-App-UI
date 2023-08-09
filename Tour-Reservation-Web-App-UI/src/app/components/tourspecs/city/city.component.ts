@@ -5,9 +5,11 @@ import { MatTableDataSource,  } from '@angular/material/table';
   
 import { ToastrService } from 'ngx-toastr';
 import { List_City } from 'src/app/contracts/tour_elements/list_city';
+import { List_Country } from 'src/app/contracts/tour_elements/list_country';
 import { Create_City } from 'src/app/contracts/users/create_city';
 import { city } from 'src/app/entities/city';
 import { CityService } from 'src/app/services/common/models/city.service';
+import { CountryService } from 'src/app/services/common/models/country.service';
 
 @Component({
   selector: 'app-city',
@@ -19,11 +21,14 @@ import { CityService } from 'src/app/services/common/models/city.service';
     constructor(
       private formBuilder: FormBuilder,
       private cityService: CityService,
+      private countryService: CountryService,
       private toastr: ToastrService
     ) {}
   
     displayedColumns: string[] = ['Id', 'CityCountry', 'CityName', 'CityDistance','update', 'delete'];
     dataSource: MatTableDataSource<List_City> = null;
+    Country_List: List_Country[];
+    
     @ViewChild(MatPaginator) paginator: MatPaginator;
     
     frmCity: FormGroup;
@@ -34,6 +39,13 @@ import { CityService } from 'src/app/services/common/models/city.service';
       console.log(this.dataSource);
       this.paginator.length = allCity.totalCount;
     }
+
+    async getCountrys(){
+      const allCountrys: { totalCount: number; countrys: List_Country[] } = await this.countryService.read(this.paginator ? this.paginator.pageIndex : 0, this.paginator ? this.paginator.pageSize : 5)
+      const allAir: {countrys: List_Country[]} = await this.countryService.read()
+      
+      this.Country_List = allAir.countrys;
+    }
   
     async ngOnInit(){
       this.frmCity = this.formBuilder.group({
@@ -43,6 +55,7 @@ import { CityService } from 'src/app/services/common/models/city.service';
       });
   
       await this.getCity();
+      await this.getCountrys();
     }
   
     get component() {

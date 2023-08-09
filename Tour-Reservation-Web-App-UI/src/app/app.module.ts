@@ -34,6 +34,7 @@ import { DeletedriverDirective } from './directives/admin/deletedriver.directive
 import { VehicleComponent } from './components/tourspecs/vehicle/vehicle.component';
 import { DeletecityDirective } from './directives/admin/deletecity.directive';
 import { DeletevehicleDirective } from './directives/deletevehicle.directive';
+import { DeletecountryDirective } from './directives/admin/deletecountry.directive';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { DeletevehicleDirective } from './directives/deletevehicle.directive';
     VehicleComponent,
     DeletecityDirective,
     DeletevehicleDirective,
+    DeletecountryDirective
   ],
   imports: [
     BrowserModule,

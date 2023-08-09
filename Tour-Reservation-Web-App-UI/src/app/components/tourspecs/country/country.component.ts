@@ -42,7 +42,6 @@ type NewType = country;
       this.frmCountry = this.formBuilder.group({
         CountryCode: ['', [Validators.required]],
         CountryName: ['', [Validators.required]],
-        CountryCountry: ['', [Validators.required]],
       });
   
       await this.getCountry();

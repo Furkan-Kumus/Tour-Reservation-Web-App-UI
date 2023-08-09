@@ -60,6 +60,7 @@
         </th>
 
         <th>
+          <H5 style="margin-left: 25%;">Havaalanı Kodu </H5>
           <input
             placeholder="Havaalanı Kodunu Giriniz"
             type="text"
@@ -69,6 +70,7 @@
         </th>
 
         <th>
+          <H5 style="margin-left: 25%;">Havaalanı İsmi</H5>
           <input
             placeholder="Havaalanı İsmini Giriniz"
             type="text"
@@ -78,12 +80,13 @@
         </th>
 
         <th>
-          <input
-            placeholder="Havaalanı Ülkesini Giriniz"
-            type="text"
-            id="AirportCountry"
-            formControlName="AirportCountry"
-          />
+          <H5 style="margin-left: 25%;">Ülke</H5>
+
+          <select  class="form-control" formControlName="AirportCountry" name="AirportCountry" id="AirportCountry" required style="scale: 0.75; width: 150px;">
+            <option *ngFor="let category of Country_List" [value]="category.countryName">
+             {{category.countryName}} | {{category.countryCode}}
+            </option>
+          </select>
         </th>
         
 

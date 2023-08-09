@@ -49,7 +49,11 @@
   >
   </mat-paginator>
 </div>
-
+<select  class="form-control" formControlName="FlightRegion" name="FlightRegion" id="FlightRegion" required style="scale: 0.75; width: 150px;">
+            <option *ngFor="let category of Country_List" [value]="category.countryName">
+             {{category.countryName}} | {{category.countryName}}
+            </option>
+          </select>
 <form [formGroup]="frmCity" (ngSubmit)="addCity(frmCity.value)">
   <div class="table_design">
     <table class="arabatablo">
@@ -59,15 +63,19 @@
         </th>
 
         <th>
-          <input
-            placeholder="Ülke Giriniz"
-            type="text"
-            id="CityCountry"
-            formControlName="CityCountry"
-          />
+          <H5 style="margin-left: 25%;">Ülke</H5>
+
+          <select  class="form-control" formControlName="CityCountry" name="CityCountry" id="CityCountry" required style="scale: 0.75; width: 150px;">
+            <option *ngFor="let category of Country_List" [value]="category.countryName">
+             {{category.countryName}} | {{category.countryCode}}
+            </option>
+          </select>
+
+          
         </th>
 
-        <th>
+          <th>
+            <H5 style="margin-left: 25%;">Şehir</H5>
           <input
             placeholder="Şehir İsmini Giriniz"
             type="text"
@@ -76,7 +84,8 @@
           />
         </th>
 
-        <th>
+          <th>
+            <H5 style="margin-left: 25%;">Uzaklık</H5>
           <input
             placeholder="Şehir Uzaklığını Giriniz"
             type="text"
