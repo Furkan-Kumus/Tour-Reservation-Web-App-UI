@@ -14,10 +14,10 @@ import { AirportComponent } from './components/tourspecs/airport/airport.compone
 import { CountryComponent } from './components/tourspecs/country/country.component';
 import { DriverComponent } from './components/tourspecs/driver/driver.component';
 import { UserComponent } from './components/tourspecs/user/user.component';
-import { CarComponent } from './components/tourspecs/car/car.component';
 import { CityComponent } from './components/tourspecs/city/city.component';
 import { HotelComponent } from './components/tourspecs/hotel/hotel.component';
 import { RegionsComponent } from './components/tourspecs/regions/regions.component';
+import { VehicleComponent } from './components/tourspecs/vehicle/vehicle.component';
 
 
 const routes: Routes = [
@@ -41,7 +41,7 @@ const routes: Routes = [
   {path :'asked',component : AskedComponent},
   {path :'country',component : CountryComponent ,canActivate: [AuthGuard] },
   {path :'flights',component : FlightsComponent,canActivate: [AuthGuard] },
-  {path :'car',component : CarComponent,canActivate: [AuthGuard] },
+  {path :'vehicle',component : VehicleComponent,canActivate: [AuthGuard] },
   {path :'region',component : RegionsComponent,canActivate: [AuthGuard] },
   {path :'user',component : UserComponent,canActivate: [AuthGuard] },
   {path :'driver',component : DriverComponent,canActivate: [AuthGuard] },

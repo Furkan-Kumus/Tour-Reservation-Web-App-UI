@@ -1,0 +1,96 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let vehicle">{{ vehicle.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="VehicleCode">
+      <th mat-header-cell *matHeaderCellDef>Araba Kodu</th>
+      <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicleCode }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="VehicleLicensePlate">
+      <th mat-header-cell *matHeaderCellDef>Araba plaka Lisansı</th>
+      <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicleLicensePlate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="VehicleDriver">
+      <th mat-header-cell *matHeaderCellDef>Araba Sürücüsü</th>
+      <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicleDriver }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="VehicleType">
+      <th mat-header-cell *matHeaderCellDef>Araba Tipi</th>
+      <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicleType }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="VehicleForPeople">
+      <th mat-header-cell *matHeaderCellDef>Araba Kaç Kişilik</th>
+      <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicleForPeople }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        <button (click)="opentab()">Araç Ekle</button>
+      </th>
+      <td mat-cell *matCellDef="let vehicles" style="text-align: center"><img src="../../../../assets/edit-file.png"
+          style="width: 30px;"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        Sil
+      </th>
+      <td [id]="vehicles.id" mat-cell *matCellDef="let vehicles" appDeletevehicle (callback)="getVehicles()"></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator (page)="pageChanged()" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+    aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+<form [formGroup]="frmVehicle" (ngSubmit)="addVehicle(frmVehicle.value)">
+  <div class="table_design">
+    <table class="arabatablo">
+      <tr *ngIf="isSubmitted">
+        <th>
+          <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
+        </th>
+
+        <th>
+          <input placeholder="Araç Kodunu Giriniz" type="text" id="VehicleCode" formControlName="VehicleCode" />
+        </th>
+
+        <th>
+          <input placeholder="Araç Lisans Plakasını Giriniz" type="text" id="VehicleLicensePlate"
+            formControlName="VehicleLicensePlate" />
+        </th>
+
+        <th>
+          <input placeholder="Araç Şoförünü Giriniz" type="text" id="VehicleDriver" formControlName="VehicleDriver" />
+        </th>
+
+        <th>
+          <input placeholder="Araç Tipini Giriniz" type="text" id="VehicleType" formControlName="VehicleType" />
+        </th>
+
+        <th>
+          <input placeholder="Araç Kaç Kişilik Giriniz" type="text" id="VehicleForPeople"
+            formControlName="VehicleForPeople" />
+        </th>
+
+        <th style="width: 60px; text-align: center">
+          <button type="submit" style="margin-right: 7px">Ekle</button><button (click)="closeTab()"
+            onClick="window.location.reload();">
+            X
+          </button>
+        </th>
+      </tr>
+    </table>
+  </div>
+</form>

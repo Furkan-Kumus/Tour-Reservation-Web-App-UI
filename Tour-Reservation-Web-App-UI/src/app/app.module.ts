@@ -17,7 +17,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { FlightsComponent } from './components/tourspecs/flights/flights.component';
 import { CountryComponent } from './components/tourspecs/country/country.component';
 import { AirportComponent } from './components/tourspecs/airport/airport.component';
-import { CarComponent } from './components/tourspecs/car/car.component';
 import { DriverComponent } from './components/tourspecs/driver/driver.component';
 import { UserComponent } from './components/tourspecs/user/user.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -32,6 +31,7 @@ import { DeleteairportDirective } from './directives/admin/deleteairport.directi
 import { DeletehotelDirective } from './directives/admin/deletehotel.directive';
 import { DeleteregionDirective } from './directives/admin/deleteregion.directive';
 import { DeletedriverDirective } from './directives/admin/deletedriver.directive';
+import { VehicleComponent } from './components/tourspecs/vehicle/vehicle.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,6 @@ import { DeletedriverDirective } from './directives/admin/deletedriver.directive
     FlightsComponent,
     CountryComponent,
     AirportComponent,
-    CarComponent,
     DriverComponent,
     UserComponent,
     DeleteDirective,
@@ -57,7 +56,8 @@ import { DeletedriverDirective } from './directives/admin/deletedriver.directive
     DeleteairportDirective,
     DeletehotelDirective,
     DeleteregionDirective,
-    DeletedriverDirective
+    DeletedriverDirective,
+    VehicleComponent
   ],
   imports: [
     BrowserModule,
