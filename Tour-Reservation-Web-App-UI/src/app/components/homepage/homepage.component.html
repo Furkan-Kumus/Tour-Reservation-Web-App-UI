@@ -32,7 +32,7 @@
       <li *ngIf="!authService.isAuthenticated"><a routerLink="login"><i class="fa fa-user-circle"></i> Giriş Yap</a>
       </li>
       <li *ngIf="!authService.isAuthenticated"><a routerLink="register"><i class="fa fa-pencil"></i> Kayıt Ol</a></li>
-      <li (click)="signOut()" *ngIf="authService.isAuthenticated"><a style="color:red;cursor:pointer;"><i
+      <li (click)="signOut()" *ngIf="authService.isAuthenticated"><a style="color:rgb(145, 5, 5);cursor:pointer;"><i
             class="fa fa-sign-out"></i> Çıkış Yap</a></li>
     </ul>
     <div class="social_media">
