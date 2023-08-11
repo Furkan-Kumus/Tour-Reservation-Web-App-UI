@@ -18,7 +18,6 @@ import { FlightsComponent } from './components/tourspecs/flights/flights.compone
 import { CountryComponent } from './components/tourspecs/country/country.component';
 import { AirportComponent } from './components/tourspecs/airport/airport.component';
 import { DriverComponent } from './components/tourspecs/driver/driver.component';
-import { UserComponent } from './components/tourspecs/user/user.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
@@ -35,6 +34,7 @@ import { VehicleComponent } from './components/tourspecs/vehicle/vehicle.compone
 import { DeletecityDirective } from './directives/admin/deletecity.directive';
 import { DeletevehicleDirective } from './directives/deletevehicle.directive';
 import { DeletecountryDirective } from './directives/admin/deletecountry.directive';
+import { UsersComponent } from './components/tourspecs/users/users.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,6 @@ import { DeletecountryDirective } from './directives/admin/deletecountry.directi
     CountryComponent,
     AirportComponent,
     DriverComponent,
-    UserComponent,
     DeleteDirective,
     CityComponent,
     HotelComponent,
@@ -63,7 +62,8 @@ import { DeletecountryDirective } from './directives/admin/deletecountry.directi
     VehicleComponent,
     DeletecityDirective,
     DeletevehicleDirective,
-    DeletecountryDirective
+    DeletecountryDirective,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

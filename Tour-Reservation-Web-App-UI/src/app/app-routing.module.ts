@@ -13,7 +13,7 @@ import { FlightsComponent } from './components/tourspecs/flights/flights.compone
 import { AirportComponent } from './components/tourspecs/airport/airport.component';
 import { CountryComponent } from './components/tourspecs/country/country.component';
 import { DriverComponent } from './components/tourspecs/driver/driver.component';
-import { UserComponent } from './components/tourspecs/user/user.component';
+import { UsersComponent } from './components/tourspecs/users/users.component';
 import { CityComponent } from './components/tourspecs/city/city.component';
 import { HotelComponent } from './components/tourspecs/hotel/hotel.component';
 import { RegionsComponent } from './components/tourspecs/regions/regions.component';
@@ -43,7 +43,7 @@ const routes: Routes = [
   {path :'flights',component : FlightsComponent,canActivate: [AuthGuard] },
   {path :'vehicle',component : VehicleComponent,canActivate: [AuthGuard] },
   {path :'region',component : RegionsComponent,canActivate: [AuthGuard] },
-  {path :'user',component : UserComponent,canActivate: [AuthGuard] },
+  {path :'users',component : UsersComponent,canActivate: [AuthGuard] },
   {path :'driver',component : DriverComponent,canActivate: [AuthGuard] },
   {path :'city',component : CityComponent,canActivate: [AuthGuard] },
   {path :'hotel',component : HotelComponent,canActivate: [AuthGuard] },

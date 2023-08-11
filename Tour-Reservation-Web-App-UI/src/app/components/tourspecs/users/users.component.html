@@ -1,0 +1,89 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let users">{{ users.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UsersName">
+      <th mat-header-cell *matHeaderCellDef>Kullanıcı İsmi</th>
+      <td mat-cell *matCellDef="let users">{{ users.userName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UsersSurname">
+      <th mat-header-cell *matHeaderCellDef>Kullanıcı Soyismi</th>
+      <td mat-cell *matCellDef="let users">{{ users.userSurname }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UsersCompany">
+      <th mat-header-cell *matHeaderCellDef>Kullanıcı Şirketi</th>
+      <td mat-cell *matCellDef="let users">{{ users.userCompany }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="UsersAuthority">
+      <th mat-header-cell *matHeaderCellDef>Kullanıcı Yetkisi</th>
+      <td mat-cell *matCellDef="let users">{{ users.userAuthority }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        <button (click)="opentab()">Kullanıcı Ekle</button>
+      </th>
+      <td mat-cell *matCellDef="let users" style="text-align: center"><img src="../../../../assets/edit-file.png"
+          style="width: 30px;"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef style="text-align: center">
+        Sil
+      </th>
+      <td [id]="users.id" mat-cell *matCellDef="let users" appDeleteusers (callback)="getUsers()"></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator (page)="pageChanged()" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+    aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+<form [formGroup]="frmUsers" (ngSubmit)="addUsers(frmUsers.value)">
+  <div class="table_design">
+    <table class="arabatablo">
+      <tr *ngIf="isSubmitted">
+        <th>
+          <h6 style="text-align: center">Id otomatik oluşturulmaktadır.</h6>
+        </th>
+
+        <th>
+          <input placeholder="Kullanıcının İsmini Giriniz" type="text" id="UsersName" formControlName="UsersName" />
+        </th>
+
+        <th>
+          <input placeholder="Kullanıcının Soyismini Giriniz" type="text" id="UsersSurname"
+            formControlName="UsersSurname" />
+        </th>
+
+        <th>
+          <input placeholder="Kullanıcının Şirketini Giriniz" type="text" id="UsersCompany"
+            formControlName="UsersCompany" />
+        </th>
+
+        <th>
+          <input placeholder="Kullanıcının Yetkisini Giriniz" type="text" id="UsersAuthority"
+            formControlName="UsersAuthority" />
+        </th>
+
+
+        <th style="width: 60px; text-align: center">
+          <button type="submit" style="margin-right: 7px">Ekle</button><button (click)="closeTab()"
+            onClick="window.location.reload();">
+            X
+          </button>
+        </th>
+      </tr>
+    </table>
+  </div>
+</form>
